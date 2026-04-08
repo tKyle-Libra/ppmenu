@@ -129,7 +129,7 @@ export default {
   right: 16rpx;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10rpx);
-  font-size: 32rpx;
+  font-size: 22rpx;
 }
 
 /* 商品信息 */
