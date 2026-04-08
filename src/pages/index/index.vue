@@ -171,8 +171,8 @@ export default {
       // 只显示前20条（或 displayCount 条）
       this.displayProducts = filtered.slice(0, this.displayCount)
 
-      // 判断是否有更多数据
-      this.hasMore = filtered.length > this.displayCount
+      // 判断是否有更多数据（比较筛选结果总数和当前显示数量）
+      this.hasMore = filtered.length > this.displayProducts.length
 
       console.log('筛选条件:', this.currentFilters)
       console.log(`筛选结果: ${filtered.length}条，显示前${this.displayProducts.length}条`)
