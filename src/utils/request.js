@@ -96,13 +96,24 @@ function getTypePath(typeId) {
 
 /**
  * 处理口味标签
- * @param {string} tastesStr - 口味字符串（用顿号分隔）
+ * @param {string|Array<string>} tastes - 口味字符串（用顿号分隔）或口味数组
  * @returns {Array<string>} 口味数组
  */
-export function processTastes(tastesStr) {
-  if (!tastesStr) return []
-  return tastesStr
-    .split('、')
-    .map(t => t.trim())
-    .filter(Boolean)
+export function processTastes(tastes) {
+  if (!tastes) return []
+
+  // 如果已经是数组，直接返回
+  if (Array.isArray(tastes)) {
+    return tastes
+  }
+
+  // 如果是字符串，按顿号分割
+  if (typeof tastes === 'string') {
+    return tastes
+      .split('、')
+      .map(t => t.trim())
+      .filter(Boolean)
+  }
+
+  return []
 }
