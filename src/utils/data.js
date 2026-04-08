@@ -19,6 +19,10 @@ import page12 from '/public/db/data-page12.json'
 import page13 from '/public/db/data-page13.json'
 import page14 from '/public/db/data-page14.json'
 import page15 from '/public/db/data-page15.json'
+import page16 from '/public/db/data-page16.json'
+import page17 from '/public/db/data-page17.json'
+import page18 from '/public/db/data-page18.json'
+import page19 from '/public/db/data-page19.json'
 
 // 页面数据映射
 const pagesData = {
@@ -36,7 +40,11 @@ const pagesData = {
   12: page12,
   13: page13,
   14: page14,
-  15: page15
+  15: page15,
+  16: page16,
+  17: page17,
+  18: page18,
+  19: page19
 }
 
 const pageCache = new Map()
