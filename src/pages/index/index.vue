@@ -84,7 +84,10 @@ export default {
      */
     async loadPage(pageNum, silent = false) {
       if (this.loading) return
-      if (!this.hasMore) return
+
+      // 静默加载时，只检查是否还有更多页；正常加载时，检查 hasMore
+      if (!silent && !this.hasMore) return
+      if (silent && pageNum > TOTAL_PAGES) return
 
       this.loading = true
 
@@ -101,11 +104,14 @@ export default {
         // 如果不是静默加载，应用筛选
         if (!silent) {
           this.applyFilter()
+          // applyFilter 会设置 hasMore
+        } else {
+          // 静默加载时，更新页码但不应用筛选
+          this.currentPage = pageNum
+          // 静默加载时，更新 hasMore 以便继续加载
+          // 有两种情况可以继续加载：还有更多页，或者已加载的数据还未显示完
+          this.hasMore = this.currentPage < TOTAL_PAGES || this.allProducts.length > this.displayProducts.length
         }
-
-        // 更新分页状态
-        this.currentPage = pageNum
-        this.hasMore = pageNum < TOTAL_PAGES
 
         console.log(`第${pageNum}页加载完成，本页${processedData.length}条`)
       } catch (error) {
@@ -179,13 +185,28 @@ export default {
     },
 
     /**
+     * 检查是否有激活的筛选条件
+     */
+    hasActiveFilters() {
+      return !!(
+        this.currentFilters.isNew ||
+        this.currentFilters.petType ||
+        this.currentFilters.productType
+        // isSnacks 暂时注释
+      )
+    },
+
+    /**
      * 加载更多
      */
     loadMore() {
       if (this.loading || !this.hasMore) return
 
+      // 检查是否有筛选条件（通过比较 allProducts 和 filteredProducts）
+      const hasFilters = this.hasActiveFilters()
+
       // 如果有筛选条件，显示更多筛选结果
-      if (this.filteredProducts.length > this.displayProducts.length) {
+      if (hasFilters && this.filteredProducts.length > this.displayProducts.length) {
         const currentLength = this.displayProducts.length
         const nextLength = Math.min(currentLength + this.displayCount, this.filteredProducts.length)
         this.displayProducts = this.filteredProducts.slice(0, nextLength)
@@ -194,11 +215,19 @@ export default {
         return
       }
 
-      // 如果没有筛选条件或数据已全部加载，加载下一页
+      // 如果没有筛选条件或筛选结果已全部显示，加载下一页
       if (this.currentPage < TOTAL_PAGES) {
         const nextPage = this.currentPage + 1
         this.loadPage(nextPage)
+      } else if (!hasFilters && this.allProducts.length > this.displayProducts.length) {
+        // 所有页已加载完，但还有未显示的数据
+        const currentLength = this.displayProducts.length
+        const nextLength = Math.min(currentLength + this.displayCount, this.allProducts.length)
+        this.displayProducts = this.allProducts.slice(0, nextLength)
+        this.hasMore = nextLength < this.allProducts.length
+        console.log(`加载更多已加载数据: ${currentLength} -> ${nextLength}`)
       }
+    },
     },
 
     /**
