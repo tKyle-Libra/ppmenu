@@ -1,41 +1,381 @@
 [
   {
-    "product_id": 3,
-    "product_name": "麦卢卡蜂蜜羊奶酱",
-    "product_price": "5.2",
-    "product_img": "image_20250916234449",
+    "product_id": 281,
+    "product_name": "史迪奇",
+    "product_price": "5.9",
+    "brand_id": 28,
+    "brand_name": "阿飞和巴弟",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143424",
+    "product_weight": "42g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "鸡肉蓝莓"
+    ]
+  },
+  {
+    "product_id": 282,
+    "product_name": "全价猫用主食餐盒",
+    "product_price": "6.9",
+    "brand_id": 79,
+    "brand_name": "丸芙",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143434",
+    "product_weight": "100g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "鸡肉",
+      "鸭肉",
+      "三文鱼",
+      "牛肉",
+      "乳鸽",
+      "兔肉",
+      "金枪鱼",
+      "鸡肉羊奶",
+      "鸡肉蛋黄"
+    ]
+  },
+  {
+    "product_id": 283,
+    "product_name": "冰激凌",
+    "product_price": "6.7",
+    "brand_id": 115,
+    "brand_name": "高爷家",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143445",
+    "product_weight": "80g",
+    "product_eat_type": 2,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "莓莓",
+      "蜜瓜",
+      "香蕉"
+    ]
+  },
+  {
+    "product_id": 284,
+    "product_name": "快乐补水汤",
+    "product_price": "4.2",
+    "brand_id": 6,
+    "brand_name": "扑吃",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143519",
+    "product_weight": "85g",
     "product_eat_type": 3,
     "product_is_new": 0,
-    "product_weight": "80g",
-    "product_type_id": 1,
-    "brand_name": "二人一物",
-    "product_type_name": "酱包",
-    "product_tastes": "姜黄沙棘果、小黄桃木瓜、椰子秋白梨、甘蓝大麦若叶、紫薯小南瓜、芝麻黑松露、草莓蔓越莓、蓝莓黑树莓"
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "284",
+      "蓝莓蔓越莓",
+      "沙棘",
+      "褐藻",
+      "猴头菇",
+      "羽衣甘蓝"
+    ]
   },
   {
-    "product_id": 2,
-    "product_name": "果蔬鸡",
-    "product_price": "7.3",
-    "product_img": "image_20250916234343",
-    "product_eat_type": 1,
+    "product_id": 285,
+    "product_name": "夏日限定",
+    "product_price": "4.8",
+    "brand_id": 6,
+    "brand_name": "扑吃",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143534",
+    "product_weight": "85g",
+    "product_eat_type": 3,
     "product_is_new": 0,
-    "product_weight": "80g",
-    "product_type_id": 1,
-    "brand_name": "毛兀",
-    "product_type_name": "酱包",
-    "product_tastes": "姜黄奇亚籽、椰椰黑芝麻、沙棘羽衣甘蓝、蔓越莓草莓、蛋黄南瓜、酸奶蜂蜜"
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "西瓜",
+      "冬瓜",
+      "绿豆"
+    ]
   },
   {
-    "product_id": 1,
-    "product_name": "缤纷果漾",
-    "product_price": "5.6",
-    "product_img": "image_20250916230147",
-    "product_eat_type": 1,
+    "product_id": 286,
+    "product_name": "珍稀汤包",
+    "product_price": "6.2",
+    "brand_id": 6,
+    "brand_name": "扑吃",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143544",
+    "product_weight": "85g",
+    "product_eat_type": 3,
     "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "菠菜猪肉",
+      "菠菜兔肉"
+    ]
+  },
+  {
+    "product_id": 287,
+    "product_name": "补水小绿罐",
+    "product_price": "4.5",
+    "brand_id": 6,
+    "brand_name": "扑吃",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143555",
+    "product_weight": "85g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "鸡肉蛋黄鱼油",
+      "鸡肉南瓜纤维素",
+      "鸡肉鸡心牛磺酸",
+      "鸡肉酵母益生元",
+      "鸡肉青口贝乳钙"
+    ]
+  },
+  {
+    "product_id": 288,
+    "product_name": "补水小红罐",
+    "product_price": "4.8",
+    "brand_id": 6,
+    "brand_name": "扑吃",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143605",
+    "product_weight": "85g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "鸡肉胡萝卜",
+      "鸡肉益生元",
+      "鸡肉磷虾",
+      "鸡肉蓝莓"
+    ]
+  },
+  {
+    "product_id": 289,
+    "product_name": "奶盖罐",
+    "product_price": "7.8",
+    "brand_id": 6,
+    "brand_name": "扑吃",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143617",
+    "product_weight": "90g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "原味",
+      "厚乳芝士",
+      "羊奶羽衣甘蓝",
+      "羊奶蔓越莓"
+    ]
+  },
+  {
+    "product_id": 290,
+    "product_name": "大碗汤",
+    "product_price": "2.9",
+    "brand_id": 50,
+    "brand_name": "领先",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143627",
     "product_weight": "70g",
-    "product_type_id": 1,
-    "brand_name": "我自有山海",
-    "product_type_name": "酱包",
-    "product_tastes": "奇异果甜虾、榴莲鸡肉、草莓鸽肉、西瓜兔肉、香蕉蛋黄"
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "椰子鸡",
+      "鸡肉",
+      "牛肉"
+    ]
+  },
+  {
+    "product_id": 291,
+    "product_name": "猫用全价主食汤包",
+    "product_price": "6.8",
+    "brand_id": 49,
+    "brand_name": "万物欢喜",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143638",
+    "product_weight": "65g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "瓜瓜鸡",
+      "楂楂兔",
+      "椰椰鸭"
+    ]
+  },
+  {
+    "product_id": 292,
+    "product_name": "犬用全价主食汤包",
+    "product_price": "6.8",
+    "brand_id": 49,
+    "brand_name": "万物欢喜",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143648",
+    "product_weight": "65g",
+    "product_eat_type": 2,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "甜甜鸡",
+      "花花牛",
+      "梨梨鸭"
+    ]
+  },
+  {
+    "product_id": 293,
+    "product_name": "蘑菇汤罐",
+    "product_price": "6",
+    "brand_id": 11,
+    "brand_name": "尾巴生活",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143700",
+    "product_weight": "100g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "鸡肉",
+      "鸭肉"
+    ]
+  },
+  {
+    "product_id": 294,
+    "product_name": "猫用全价主食浓汤",
+    "product_price": "9.1",
+    "brand_id": 52,
+    "brand_name": "喜崽",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143711",
+    "product_weight": "90g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "芝士莓莓兔",
+      "蛋黄椰子鸡",
+      "绵绵厚羊乳",
+      "贝贝南瓜兔",
+      "贝贝南瓜猪"
+    ]
+  },
+  {
+    "product_id": 295,
+    "product_name": "猫用全价主食浓汤（夏日果香）",
+    "product_price": "9.1",
+    "brand_id": 52,
+    "brand_name": "喜崽",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143727",
+    "product_weight": "90g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "山竹雪梨椰乳",
+      "芭乐石榴椰乳"
+    ]
+  },
+  {
+    "product_id": 296,
+    "product_name": "猫用主食厚乳云朵浓汤",
+    "product_price": "6.3",
+    "brand_id": 17,
+    "brand_name": "益嘉禾暮",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143738",
+    "product_weight": "98g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "奶油草莓鸡",
+      "芝麻乌骨鸡",
+      "丝瓜白羽鸡",
+      "椰油羊初乳",
+      "香梨金定鸭",
+      "芝士鳖蛋黄"
+    ]
+  },
+  {
+    "product_id": 297,
+    "product_name": "主食级果蔬浓汤",
+    "product_price": "6.8",
+    "brand_id": 14,
+    "brand_name": "里鹿",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143750",
+    "product_weight": "90g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "南瓜",
+      "梨",
+      "紫薯"
+    ]
+  },
+  {
+    "product_id": 298,
+    "product_name": "奶油浓汤罐",
+    "product_price": "4.9",
+    "brand_id": 19,
+    "brand_name": "妮吖",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143809",
+    "product_weight": "100g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "椰子鸡",
+      "苹果鸡",
+      "蘑菇鸽",
+      "草莓兔",
+      "绿豆鸭",
+      "南瓜牛"
+    ]
+  },
+  {
+    "product_id": 299,
+    "product_name": "啵啵浓汤主食罐",
+    "product_price": "7.8",
+    "brand_id": 13,
+    "brand_name": "相生之宠",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143822",
+    "product_weight": "90g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "兔兔草莓",
+      "猪猪蓝莓",
+      "三文鱼南瓜"
+    ]
+  },
+  {
+    "product_id": 300,
+    "product_name": "全价绵绵浓汤（乳铁蛋白）",
+    "product_price": "4.5",
+    "brand_id": 19,
+    "brand_name": "妮吖",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917143833",
+    "product_weight": "0g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 6,
+    "product_type_name": "汤",
+    "product_tastes": [
+      "牛肉白花藕",
+      "红酒鹅肝",
+      "鲜虾青口贝",
+      "奶油蘑菇鸡",
+      "鸽肉蛋黄羹",
+      "四季田园菜"
+    ]
   }
 ]

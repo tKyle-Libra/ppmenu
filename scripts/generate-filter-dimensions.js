@@ -20,7 +20,7 @@ async function loadAllData() {
   const allData = []
 
   // 获取所有 data-page*.json 文件
-  for (let i = 1; i <= 15; i++) {
+  for (let i = 1; i <= 19; i++) {
     const fileName = `data-page${i}.json`
     const filePath = path.join(DATA_DIR, fileName)
 

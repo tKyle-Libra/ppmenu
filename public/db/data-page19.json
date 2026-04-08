@@ -1,0 +1,291 @@
+[
+  {
+    "product_id": 361,
+    "product_name": "宠物零食冻干",
+    "product_price": "6.5～7.8",
+    "brand_id": 74,
+    "brand_name": "魔球",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145332",
+    "product_weight": "25g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "黄油小砖",
+      "香草烤奶"
+    ]
+  },
+  {
+    "product_id": 362,
+    "product_name": "蛋液鳕鱼",
+    "product_price": "25.5",
+    "brand_id": 74,
+    "brand_name": "魔球",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145342",
+    "product_weight": "40g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "蛋液鳕鱼"
+    ]
+  },
+  {
+    "product_id": 363,
+    "product_name": "霸气大饼",
+    "product_price": "25.5",
+    "brand_id": 74,
+    "brand_name": "魔球",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145352",
+    "product_weight": "125g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "鸭肉褐藻大饼"
+    ]
+  },
+  {
+    "product_id": 364,
+    "product_name": "鸭肉梨",
+    "product_price": "5.2",
+    "brand_id": 74,
+    "brand_name": "魔球",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145402",
+    "product_weight": "10g",
+    "product_eat_type": 2,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": []
+  },
+  {
+    "product_id": 365,
+    "product_name": "草肚便便",
+    "product_price": "5.2",
+    "brand_id": 74,
+    "brand_name": "魔球",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145416",
+    "product_weight": "10g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": []
+  },
+  {
+    "product_id": 366,
+    "product_name": "无菌蛋",
+    "product_price": "5.2",
+    "brand_id": 74,
+    "brand_name": "魔球",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145428",
+    "product_weight": "10g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": []
+  },
+  {
+    "product_id": 367,
+    "product_name": "全价主食冻干",
+    "product_price": "13.6",
+    "brand_id": 92,
+    "brand_name": "肉食凶猛",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145440",
+    "product_weight": "13g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": []
+  },
+  {
+    "product_id": 368,
+    "product_name": "全价主食冻干（超级元素）",
+    "product_price": "6.5",
+    "brand_id": 92,
+    "brand_name": "肉食凶猛",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145451",
+    "product_weight": "10g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "海藻",
+      "羊初乳"
+    ]
+  },
+  {
+    "product_id": 369,
+    "product_name": "抵御力小方（食补守护）",
+    "product_price": "12",
+    "brand_id": 92,
+    "brand_name": "肉食凶猛",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145503",
+    "product_weight": "25g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": []
+  },
+  {
+    "product_id": 370,
+    "product_name": "抵御力小方（排美一体）",
+    "product_price": "12",
+    "brand_id": 92,
+    "brand_name": "肉食凶猛",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145514",
+    "product_weight": "25g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": []
+  },
+  {
+    "product_id": 371,
+    "product_name": "洁齿棒",
+    "product_price": "12",
+    "brand_id": 92,
+    "brand_name": "肉食凶猛",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145526",
+    "product_weight": "25g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": []
+  },
+  {
+    "product_id": 372,
+    "product_name": "全价犬用主食冻干（好棒）",
+    "product_price": "13.6",
+    "brand_id": 92,
+    "brand_name": "肉食凶猛",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145537",
+    "product_weight": "32g",
+    "product_eat_type": 2,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "鸡兔",
+      "鸭牛"
+    ]
+  },
+  {
+    "product_id": 373,
+    "product_name": "全价生骨肉主食冻干猫粮",
+    "product_price": "7.8",
+    "brand_id": 49,
+    "brand_name": "万物欢喜",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145550",
+    "product_weight": "10g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "鱼肉",
+      "鸡肉",
+      "兔肉"
+    ]
+  },
+  {
+    "product_id": 374,
+    "product_name": "猫咪全价全期主食冻干（低敏配方）",
+    "product_price": "5.3～5.8",
+    "brand_id": 93,
+    "brand_name": "mundi",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145600",
+    "product_weight": "10g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "鸡肉",
+      "兔肉"
+    ]
+  },
+  {
+    "product_id": 375,
+    "product_name": "猫咪全价全期主食冻干",
+    "product_price": "4.5～7.2",
+    "brand_id": 93,
+    "brand_name": "mundi",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145613",
+    "product_weight": "10g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "牛肉",
+      "兔肉",
+      "鸡肉",
+      "鸭肉",
+      "兔兔莓果",
+      "鸡肉鳕鱼",
+      "草莓羊奶"
+    ]
+  },
+  {
+    "product_id": 376,
+    "product_name": "全价主食冻干",
+    "product_price": "28.8",
+    "brand_id": 59,
+    "brand_name": "短脖子乔治",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145655",
+    "product_weight": "100g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "小肉饼"
+    ]
+  },
+  {
+    "product_id": 377,
+    "product_name": "全价主食冻干猫粮",
+    "product_price": "4.5～5",
+    "brand_id": 53,
+    "brand_name": "季季予喵",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145706",
+    "product_weight": "10g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "鸡鸽",
+      "鸡肉",
+      "鸡兔",
+      "鸡鹅"
+    ]
+  },
+  {
+    "product_id": 378,
+    "product_name": "原切冻干",
+    "product_price": "21.5",
+    "brand_id": 53,
+    "brand_name": "季季予喵",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917145720",
+    "product_weight": "50g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 7,
+    "product_type_name": "冻干",
+    "product_tastes": [
+      "鸭肉"
+    ]
+  }
+]

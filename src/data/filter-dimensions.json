@@ -8,7 +8,7 @@
           "id": "all",
           "name": "全部",
           "value": "",
-          "count": 283
+          "count": 378
         },
         {
           "id": "new",
@@ -26,25 +26,25 @@
           "id": "all",
           "name": "全部",
           "value": "",
-          "count": 283
+          "count": 378
         },
         {
           "id": "cat",
           "name": "猫",
           "value": "cat",
-          "count": 173
+          "count": 219
         },
         {
           "id": "dog",
           "name": "狗",
           "value": "dog",
-          "count": 43
+          "count": 47
         },
         {
           "id": "universal",
           "name": "通用",
           "value": "universal",
-          "count": 67
+          "count": 112
         }
       ]
     },
@@ -56,7 +56,7 @@
           "id": "all",
           "name": "全部",
           "value": "",
-          "count": 283
+          "count": 378
         },
         {
           "id": "1",
@@ -74,41 +74,48 @@
         },
         {
           "id": "3",
+          "name": "冻干",
+          "value": "冻干",
+          "count": 68,
+          "type_id": 7
+        },
+        {
+          "id": "4",
+          "name": "汤",
+          "value": "汤",
+          "count": 44,
+          "type_id": 6
+        },
+        {
+          "id": "5",
           "name": "酱包",
           "value": "酱包",
           "count": 34,
           "type_id": 1
         },
         {
-          "id": "4",
+          "id": "6",
           "name": "餐包",
           "value": "餐包",
           "count": 33,
           "type_id": 2
         },
         {
-          "id": "5",
+          "id": "7",
           "name": "奶制品",
           "value": "奶制品",
           "count": 31,
           "type_id": 5
         },
         {
-          "id": "6",
-          "name": "冻干",
-          "value": "冻干",
-          "count": 17,
-          "type_id": 7
-        },
-        {
-          "id": "7",
+          "id": "8",
           "name": "猫条",
           "value": "猫条",
           "count": 12,
           "type_id": 8
         },
         {
-          "id": "8",
+          "id": "9",
           "name": "其他",
           "value": "其他",
           "count": 9,

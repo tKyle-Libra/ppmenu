@@ -12,7 +12,7 @@ export const DATA_BASE_URL = '/db/'
 export const PAGE_SIZE = 20
 
 // 总页数（根据实际数据计算）
-export const TOTAL_PAGES = 15
+export const TOTAL_PAGES = 19
 
 // 类型路径映射
 export const TYPE_PATHS = {

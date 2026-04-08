@@ -1,262 +1,349 @@
 [
   {
-    "product_id": 83,
-    "product_name": "莓莓流心罐",
-    "product_price": "8.5",
-    "product_img": "image_20250917135622",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "65g",
-    "product_type_id": 3,
-    "brand_name": "尾巴生活",
-    "product_type_name": "罐头",
-    "product_tastes": "兔莓巴西莓、猪肉蔓越莓、鸽鸽羊奶"
-  },
-  {
-    "product_id": 82,
-    "product_name": "生骨肉罐头",
-    "product_price": "15.75",
-    "product_img": "image_20250917135605",
-    "product_eat_type": 2,
-    "product_is_new": 0,
-    "product_weight": "100g",
-    "product_type_id": 3,
-    "brand_name": "万物欢喜",
-    "product_type_name": "罐头",
-    "product_tastes": "三文鱼、牛肉、鸭肉"
-  },
-  {
-    "product_id": 81,
-    "product_name": "生骨肉罐头",
-    "product_price": "16.4~17.9",
-    "product_img": "image_20250917135551",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "100g",
-    "product_type_id": 3,
-    "brand_name": "万物欢喜",
-    "product_type_name": "罐头",
-    "product_tastes": "牛肉、鸡肉、鸽肉"
-  },
-  {
-    "product_id": 80,
-    "product_name": "生骨肉主食罐",
-    "product_price": "9.9",
-    "product_img": "image_20250917135541",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "95g",
-    "product_type_id": 3,
-    "brand_name": "爱立方",
-    "product_type_name": "罐头",
-    "product_tastes": "三文鱼、兔肉、鸡肉"
-  },
-  {
-    "product_id": 79,
-    "product_name": "发育罐",
-    "product_price": "11.8",
-    "product_img": "image_20250917135439",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "85g",
-    "product_type_id": 3,
-    "brand_name": "格吾安",
-    "product_type_name": "罐头",
-    "product_tastes": "鸡肉（幼）"
-  },
-  {
-    "product_id": 78,
-    "product_name": "嘘嘘罐",
-    "product_price": "12.8",
-    "product_img": "image_20250917135451",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "85g",
-    "product_type_id": 3,
-    "brand_name": "格吾安",
-    "product_type_name": "罐头",
-    "product_tastes": "鸡肉"
-  },
-  {
-    "product_id": 77,
-    "product_name": "稀有肉罐",
-    "product_price": "13.8",
-    "product_img": "image_20250917135517",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "85g",
-    "product_type_id": 3,
-    "brand_name": "格吾安",
-    "product_type_name": "罐头",
-    "product_tastes": "木瓜鸽、沙棘鹿、苹果猪、蓝莓兔"
-  },
-  {
-    "product_id": 76,
-    "product_name": "boost主食罐",
-    "product_price": "13.8",
-    "product_img": "image_20250917135504",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "85g",
-    "product_type_id": 3,
-    "brand_name": "格吾安",
-    "product_type_name": "罐头",
-    "product_tastes": "慕斯鸡肉"
-  },
-  {
-    "product_id": 75,
-    "product_name": "四季罐",
-    "product_price": "9.9",
-    "product_img": "image_20250917135529",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "85g",
-    "product_type_id": 3,
-    "brand_name": "格吾安",
-    "product_type_name": "罐头",
-    "product_tastes": "山竹鸡、石榴鸡、秋月梨鸭、笋笋鸭、芭乐鸭、莓果鸡"
-  },
-  {
-    "product_id": 74,
-    "product_name": "全价犬用主食罐头",
-    "product_price": "13.2",
-    "product_img": "image_20250917135427",
-    "product_eat_type": 2,
-    "product_is_new": 0,
-    "product_weight": "170g",
-    "product_type_id": 3,
-    "brand_name": "帕特",
-    "product_type_name": "罐头",
-    "product_tastes": "火鸡、鸭肉、鹿肉"
-  },
-  {
-    "product_id": 73,
-    "product_name": "全价猫用主食罐头",
-    "product_price": "14.2",
-    "product_img": "image_20250917135415",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "170g",
-    "product_type_id": 3,
-    "brand_name": "帕特",
-    "product_type_name": "罐头",
-    "product_tastes": "兔肉、鸡肉（幼）、鸵鸟、鹌鹑"
-  },
-  {
-    "product_id": 72,
-    "product_name": "全价犬用主食罐头",
-    "product_price": "18.5～19.8",
-    "product_img": "image_20250917135400",
-    "product_eat_type": 2,
-    "product_is_new": 0,
-    "product_weight": "100g",
-    "product_type_id": 3,
-    "brand_name": "生生不息",
-    "product_type_name": "罐头",
-    "product_tastes": "兔肉、猪肉、鸭肉"
-  },
-  {
-    "product_id": 71,
-    "product_name": "全价猫用主食罐头",
-    "product_price": "18.9~19.9",
-    "product_img": "image_20250917135346",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "100g",
-    "product_type_id": 3,
-    "brand_name": "生生不息",
-    "product_type_name": "罐头",
-    "product_tastes": "兔肉、牛肉、猪肉、禽肉"
-  },
-  {
-    "product_id": 70,
-    "product_name": "全价猫用主食罐",
-    "product_price": "7.8",
-    "product_img": "image_20250917135330",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "100g",
-    "product_type_id": 3,
-    "brand_name": "鲜朗",
-    "product_type_name": "罐头",
-    "product_tastes": "三文鱼、牛肉、鸡肉"
-  },
-  {
-    "product_id": 69,
-    "product_name": "犬用主食罐",
-    "product_price": "26",
-    "product_img": "image_20250917135230",
-    "product_eat_type": 2,
-    "product_is_new": 0,
-    "product_weight": "170",
-    "product_type_id": 3,
-    "brand_name": "ziwi巅峰",
-    "product_type_name": "罐头",
-    "product_tastes": "鸡肉"
-  },
-  {
-    "product_id": 68,
-    "product_name": "猫用主食罐",
-    "product_price": "27.3",
-    "product_img": "image_20250917135230",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "85g",
-    "product_type_id": 3,
-    "brand_name": "ziwi巅峰",
-    "product_type_name": "罐头",
-    "product_tastes": "牛肉、马鲛鱼、鸡肉"
-  },
-  {
-    "product_id": 67,
-    "product_name": "肉泥包",
-    "product_price": "5.2~6.8",
-    "product_img": "image_20250917003212",
-    "product_eat_type": 1,
-    "product_is_new": 0,
-    "product_weight": "60g",
-    "product_type_id": 2,
-    "brand_name": "ontutu",
-    "product_type_name": "餐包",
-    "product_tastes": "牛肉、鱼肉、鸡肉"
-  },
-  {
-    "product_id": 66,
-    "product_name": "主食湿粮",
-    "product_price": "4.2",
-    "product_img": "image_20250917003159",
-    "product_eat_type": 2,
-    "product_is_new": 0,
-    "product_weight": "80g",
-    "product_type_id": 2,
-    "brand_name": "海上渔夫",
-    "product_type_name": "餐包",
-    "product_tastes": "控体、清新口气、美毛、肠胃调理、舒缓"
-  },
-  {
-    "product_id": 65,
-    "product_name": "果蔬大肉包",
-    "product_price": "6.9",
-    "product_img": "image_20250917003146",
-    "product_eat_type": 2,
-    "product_is_new": 0,
-    "product_weight": "85g",
-    "product_type_id": 2,
-    "brand_name": "朵朵一朵",
-    "product_type_name": "餐包",
-    "product_tastes": "三文鱼南瓜、鸡肉苹果、鸭肉雪梨"
-  },
-  {
-    "product_id": 64,
-    "product_name": "鲜肉牛奶餐包",
-    "product_price": "4.9",
-    "product_img": "image_20250917003001",
+    "product_id": 201,
+    "product_name": "山羊奶",
+    "product_price": "2",
+    "brand_id": 19,
+    "brand_name": "妮吖",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917004128",
+    "product_weight": "50g",
     "product_eat_type": 3,
     "product_is_new": 0,
+    "product_type_id": 5,
+    "product_type_name": "奶制品",
+    "product_tastes": [
+      "鲜羊乳",
+      "酸羊乳"
+    ]
+  },
+  {
+    "product_id": 202,
+    "product_name": "奶昔",
+    "product_price": "6.9",
+    "brand_id": 32,
+    "brand_name": "鲜出格",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917004141",
     "product_weight": "80g",
-    "product_type_id": 2,
-    "brand_name": "尽兴",
-    "product_type_name": "餐包",
-    "product_tastes": "鲜奶三文鱼、鲜奶鸡肉"
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 5,
+    "product_type_name": "奶制品",
+    "product_tastes": [
+      "蕉蕉奶昔 ",
+      "莓莓奶昔"
+    ]
+  },
+  {
+    "product_id": 203,
+    "product_name": "鸡丝羊乳鲜肉奶罐",
+    "product_price": "4.5",
+    "brand_id": 114,
+    "brand_name": "麻球说",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917004151",
+    "product_weight": "85g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 5,
+    "product_type_name": "奶制品",
+    "product_tastes": [
+      "麦卢卡蜂蜜",
+      "南极磷虾",
+      "蛋黄南瓜",
+      "帕玛森奶酪"
+    ]
+  },
+  {
+    "product_id": 204,
+    "product_name": "自护力小奶包",
+    "product_price": "2.9",
+    "brand_id": 86,
+    "brand_name": "饥饿的汤姆",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917004205",
+    "product_weight": "40g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 5,
+    "product_type_name": "奶制品",
+    "product_tastes": [
+      "鸡肉",
+      "乳鸽"
+    ]
+  },
+  {
+    "product_id": 205,
+    "product_name": "猫猫早安晚安奶",
+    "product_price": "5.9～7.7",
+    "brand_id": 87,
+    "brand_name": "GoMaoGo",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917004219",
+    "product_weight": "50ml",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 5,
+    "product_type_name": "奶制品",
+    "product_tastes": [
+      "舒缓焦虑",
+      "保护关节"
+    ]
+  },
+  {
+    "product_id": 206,
+    "product_name": "狗狗早安晚安奶",
+    "product_price": "7.7",
+    "brand_id": 87,
+    "brand_name": "GoMaoGo",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917004234",
+    "product_weight": "50ml",
+    "product_eat_type": 2,
+    "product_is_new": 0,
+    "product_type_id": 5,
+    "product_type_name": "奶制品",
+    "product_tastes": [
+      "舒缓焦虑",
+      "保护关节"
+    ]
+  },
+  {
+    "product_id": 207,
+    "product_name": "希腊酸奶",
+    "product_price": "3",
+    "brand_id": 88,
+    "brand_name": "它有趣",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917004245",
+    "product_weight": "40g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 5,
+    "product_type_name": "奶制品",
+    "product_tastes": [
+      "原味",
+      "蔓越莓",
+      "沙棘果"
+    ]
+  },
+  {
+    "product_id": 208,
+    "product_name": "全价成猫定食餐盒",
+    "product_price": "9.9",
+    "brand_id": 51,
+    "brand_name": "弗列加特",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917141940",
+    "product_weight": "75g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "金枪鱼牛肉",
+      "三文鱼鸭肉",
+      "鲣鱼兔肉"
+    ]
+  },
+  {
+    "product_id": 209,
+    "product_name": "全价幼猫定食餐盒",
+    "product_price": "9.9",
+    "brand_id": 51,
+    "brand_name": "弗列加特",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917141940",
+    "product_weight": "75g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "鲜鸡肉",
+      "乳鸽"
+    ]
+  },
+  {
+    "product_id": 210,
+    "product_name": "全价猫用主食餐盒",
+    "product_price": "9.9",
+    "brand_id": 46,
+    "brand_name": "帕特",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142004",
+    "product_weight": "0",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "鸡肉（幼）",
+      "鸵鸟",
+      "鹌鹑",
+      "兔肉"
+    ]
+  },
+  {
+    "product_id": 211,
+    "product_name": "草莓流心",
+    "product_price": "6.6",
+    "brand_id": 62,
+    "brand_name": "朗诺",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142031",
+    "product_weight": "0",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": []
+  },
+  {
+    "product_id": 212,
+    "product_name": "五珍罐",
+    "product_price": "6.5",
+    "brand_id": 62,
+    "brand_name": "朗诺",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142042",
+    "product_weight": "60g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "鸡肉",
+      "鸡肉鸽肉",
+      "鸡肉兔肉"
+    ]
+  },
+  {
+    "product_id": 213,
+    "product_name": "彩虹泥",
+    "product_price": "6.5",
+    "brand_id": 11,
+    "brand_name": "尾巴生活",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142053",
+    "product_weight": "35g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "青口贝甘蓝",
+      "兔兔石榴",
+      "猪猪南瓜",
+      "鳕鱼椰油",
+      "姜黄蛋黄",
+      "白玉贝莓莓"
+    ]
+  },
+  {
+    "product_id": 214,
+    "product_name": "黑白泥",
+    "product_price": "11",
+    "brand_id": 11,
+    "brand_name": "尾巴生活",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142104",
+    "product_weight": "35g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "白羽鸡",
+      "乌骨鸡"
+    ]
+  },
+  {
+    "product_id": 215,
+    "product_name": "掰掰杯",
+    "product_price": "5",
+    "brand_id": 11,
+    "brand_name": "尾巴生活",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142115",
+    "product_weight": "35g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "手撕兔肉",
+      "手撕白羽鸡",
+      "手撕鸭肉",
+      "手撕白条鸽 "
+    ]
+  },
+  {
+    "product_id": 216,
+    "product_name": "八鲜臻味",
+    "product_price": "11.8",
+    "brand_id": 29,
+    "brand_name": "布兰德",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142129",
+    "product_weight": "100g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "金汤鸡肉"
+    ]
+  },
+  {
+    "product_id": 217,
+    "product_name": "春日限定",
+    "product_price": "9.9",
+    "brand_id": 29,
+    "brand_name": "布兰德",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142140",
+    "product_weight": "100g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "鸡肉莓果"
+    ]
+  },
+  {
+    "product_id": 218,
+    "product_name": "芯意满满",
+    "product_price": "10.5",
+    "brand_id": 29,
+    "brand_name": "布兰德",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142152",
+    "product_weight": "100g",
+    "product_eat_type": 3,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "鸭肉椰椰梨"
+    ]
+  },
+  {
+    "product_id": 219,
+    "product_name": "芯意满满",
+    "product_price": "9.9",
+    "brand_id": 29,
+    "brand_name": "布兰德",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142205",
+    "product_weight": "100g",
+    "product_eat_type": 2,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "鸡肉蛋黄"
+    ]
+  },
+  {
+    "product_id": 220,
+    "product_name": "厚乳泥泥",
+    "product_price": "6.3",
+    "brand_id": 29,
+    "brand_name": "布兰德",
+    "product_img": "https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/images/image_20250917142217",
+    "product_weight": "40g",
+    "product_eat_type": 1,
+    "product_is_new": 0,
+    "product_type_id": 4,
+    "product_type_name": "餐盒",
+    "product_tastes": [
+      "鸡肉",
+      "兔肉",
+      "鳕鱼"
+    ]
   }
 ]
