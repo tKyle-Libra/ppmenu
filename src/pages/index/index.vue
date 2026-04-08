@@ -20,8 +20,8 @@ import FilterDimensions from '@/components/FilterDimensions/FilterDimensions.vue
 import ProductList from '@/components/ProductList/ProductList.vue'
 import LoadingState from '@/components/LoadingState/LoadingState.vue'
 import { loadPageData } from '@/utils/data.js'
-import { processImageUrl, processTastes } from '@/utils/request.js'
-import { BASE_URL, TOTAL_PAGES } from '@/utils/config.js'
+import { processTastes } from '@/utils/request.js'
+import { TOTAL_PAGES } from '@/utils/config.js'
 
 export default {
   name: 'Index',
@@ -126,7 +126,6 @@ export default {
     processData(rawData) {
       return rawData.map(item => ({
         ...item,
-        product_img: processImageUrl(item.product_img, item.product_type_id, BASE_URL),
         product_tastes: processTastes(item.product_tastes)
       }))
     },
