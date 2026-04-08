@@ -140,16 +140,16 @@
           "count": 378
         },
         {
+          "id": "main-food",
+          "name": "主食",
+          "value": "0",
+          "count": 360
+        },
+        {
           "id": "snacks",
           "name": "零食",
           "value": "1",
           "count": 18
-        },
-        {
-          "id": "no-snacks",
-          "name": "非零食",
-          "value": "0",
-          "count": 360
         }
       ]
     }

@@ -96,19 +96,7 @@ export default {
   },
   methods: {
     handleFilterChange(dimensionId, item) {
-      // 重置所有维度
-      this.activeFilter1 = 'all'
-      this.activeFilter2 = 'all'
-      this.activeFilter3 = 'all'
-      this.activeFilter4 = 'all'
-      this.currentFilters = {
-        isNew: '',
-        petType: '',
-        productType: '',
-        isSnacks: ''
-      }
-
-      // 更新当前点击的维度
+      // 只重置当前维度的选项
       if (dimensionId === 1) {
         this.activeFilter1 = item.id
         this.currentFilters.isNew = item.value

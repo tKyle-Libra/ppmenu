@@ -260,8 +260,8 @@ export default {
       if (filters.petType === 'universal') filterText.push('通用')
       if (filters.petType === 'young') filterText.push('幼猫')
       if (filters.productType) filterText.push(filters.productType)
+      if (filters.isSnacks === '0') filterText.push('主食')
       if (filters.isSnacks === '1') filterText.push('零食')
-      if (filters.isSnacks === '0') filterText.push('非零食')
 
       const text = filterText.length > 0 ? filterText.join(' + ') : '全部'
 

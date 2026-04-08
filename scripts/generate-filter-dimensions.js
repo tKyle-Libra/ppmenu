@@ -138,7 +138,7 @@ function generateFilterDimensions(products) {
 
   // 维度4：零食
   const snacksCount = products.filter(p => p.is_snacks === 1).length
-  const noSnacksCount = products.filter(p => p.is_snacks === 0).length
+  const mainFoodCount = products.filter(p => p.is_snacks === 0).length
 
   const dimension4 = [
     {
@@ -148,16 +148,16 @@ function generateFilterDimensions(products) {
       count: products.length
     },
     {
+      id: 'main-food',
+      name: '主食',
+      value: '0',
+      count: mainFoodCount
+    },
+    {
       id: 'snacks',
       name: '零食',
       value: '1',
       count: snacksCount
-    },
-    {
-      id: 'no-snacks',
-      name: '非零食',
-      value: '0',
-      count: noSnacksCount
     }
   ]
 
