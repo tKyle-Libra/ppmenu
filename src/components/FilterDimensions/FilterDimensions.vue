@@ -48,8 +48,8 @@
       </view>
     </view>
 
-    <!-- 维度4：零食 -->
-    <view class="filter-row">
+    <!-- 维度4：零食（暂时注释） -->
+    <!-- <view class="filter-row">
       <view class="filter-content">
         <view
           v-for="item in dimension4"
@@ -61,7 +61,7 @@
           <text class="filter-text">{{ item.name }}</text>
         </view>
       </view>
-    </view>
+    </view> -->
   </view>
 </template>
 

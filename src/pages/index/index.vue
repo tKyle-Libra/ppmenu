@@ -160,10 +160,10 @@ export default {
         filtered = filtered.filter(p => p.product_type_name === this.currentFilters.productType)
       }
 
-      // 维度4：零食筛选
-      if (this.currentFilters.isSnacks && this.currentFilters.isSnacks !== '') {
-        filtered = filtered.filter(p => p.is_snacks === parseInt(this.currentFilters.isSnacks))
-      }
+      // 维度4：零食筛选（暂时注释）
+      // if (this.currentFilters.isSnacks && this.currentFilters.isSnacks !== '') {
+      //   filtered = filtered.filter(p => p.is_snacks === parseInt(this.currentFilters.isSnacks))
+      // }
 
       // 保存筛选后的完整数据
       this.filteredProducts = filtered
@@ -260,8 +260,8 @@ export default {
       if (filters.petType === 'universal') filterText.push('通用')
       if (filters.petType === 'young') filterText.push('幼猫')
       if (filters.productType) filterText.push(filters.productType)
-      if (filters.isSnacks === '0') filterText.push('主食')
-      if (filters.isSnacks === '1') filterText.push('零食')
+      // if (filters.isSnacks === '0') filterText.push('主食')
+      // if (filters.isSnacks === '1') filterText.push('零食')
 
       const text = filterText.length > 0 ? filterText.join(' + ') : '全部'
 
