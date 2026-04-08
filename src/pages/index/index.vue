@@ -1,0 +1,277 @@
+<template>
+  <view class="page">
+    <!-- Banner 轮播 -->
+    <BannerSwiper :show="bannerVisible" />
+
+    <!-- 三维筛选栏 -->
+    <FilterDimensions :banner-visible="bannerVisible" @filter-change="handleFilterChange" />
+
+    <!-- 商品列表 -->
+    <ProductList :products="displayProducts" :loading="loading" />
+
+    <!-- 加载状态 -->
+    <LoadingState :loading="loading" :has-more="hasMore" />
+  </view>
+</template>
+
+<script>
+import BannerSwiper from '@/components/BannerSwiper/BannerSwiper.vue'
+import FilterDimensions from '@/components/FilterDimensions/FilterDimensions.vue'
+import ProductList from '@/components/ProductList/ProductList.vue'
+import LoadingState from '@/components/LoadingState/LoadingState.vue'
+import { loadPageData } from '@/utils/data.js'
+import { processImageUrl, processTastes } from '@/utils/request.js'
+import { BASE_URL, TOTAL_PAGES } from '@/utils/config.js'
+
+export default {
+  name: 'Index',
+  components: {
+    BannerSwiper,
+    FilterDimensions,
+    ProductList,
+    LoadingState
+  },
+  data() {
+    return {
+      allProducts: [], // 所有加载的商品数据
+      displayProducts: [], // 显示的商品数据（筛选后）
+      filteredProducts: [], // 筛选后的完整数据
+      currentPage: 1, // 当前页码
+      hasMore: true, // 是否有更多数据
+      loading: false, // 加载状态
+      bannerVisible: true, // Banner 是否可见
+      lastScrollTop: 0, // 上次滚动位置
+      currentFilters: {
+        isNew: '', // 新品筛选
+        petType: '', // 宠物类型
+        productType: '' // 商品类型
+      },
+      displayCount: 20, // 每页显示数量
+      bannerHeight: 300 // Banner 高度
+    }
+  },
+  onLoad() {
+    console.log('页面加载')
+    this.loadFirstPage()
+  },
+  onReachBottom() {
+    console.log('触底加载')
+    this.loadMore()
+  },
+  onPageScroll(e) {
+    this.handleScroll(e.scrollTop)
+  },
+  methods: {
+    /**
+     * 加载第一页数据
+     */
+    async loadFirstPage() {
+      this.currentPage = 1
+      this.allProducts = []
+      this.displayProducts = []
+      this.filteredProducts = []
+      this.hasMore = true
+      this.displayCount = 20
+
+      await this.loadPage(1, false)
+    },
+
+    /**
+     * 加载指定页数据
+     * @param {number} pageNum - 页码
+     * @param {boolean} silent - 是否静默加载（不应用筛选）
+     */
+    async loadPage(pageNum, silent = false) {
+      if (this.loading) return
+      if (!this.hasMore) return
+
+      this.loading = true
+
+      try {
+        // 从服务器加载数据
+        const pageData = await loadPageData(pageNum)
+
+        // 处理数据
+        const processedData = this.processData(pageData)
+
+        // 添加到所有商品列表
+        this.allProducts = [...this.allProducts, ...processedData]
+
+        // 如果不是静默加载，应用筛选
+        if (!silent) {
+          this.applyFilter()
+        }
+
+        // 更新分页状态
+        this.currentPage = pageNum
+        this.hasMore = pageNum < TOTAL_PAGES
+
+        console.log(`第${pageNum}页加载完成，本页${processedData.length}条`)
+      } catch (error) {
+        console.error('加载失败:', error)
+        uni.showToast({
+          title: '加载失败，请重试',
+          icon: 'none'
+        })
+      } finally {
+        this.loading = false
+      }
+    },
+
+    /**
+     * 处理商品数据
+     * @param {Array} rawData - 原始数据
+     * @returns {Array} 处理后的数据
+     */
+    processData(rawData) {
+      return rawData.map(item => ({
+        ...item,
+        product_img: processImageUrl(item.product_img, item.product_type_id, BASE_URL),
+        product_tastes: processTastes(item.product_tastes)
+      }))
+    },
+
+    /**
+     * 应用三维筛选条件
+     */
+    applyFilter() {
+      let filtered = this.allProducts
+
+      // 维度1：新品筛选
+      if (this.currentFilters.isNew && this.currentFilters.isNew !== '') {
+        filtered = filtered.filter(p => p.product_is_new === 1)
+      }
+
+      // 维度2：宠物类型筛选
+      if (this.currentFilters.petType && this.currentFilters.petType !== '') {
+        if (this.currentFilters.petType === 'cat') {
+          filtered = filtered.filter(p => p.product_eat_type === 1)
+        } else if (this.currentFilters.petType === 'dog') {
+          filtered = filtered.filter(p => p.product_eat_type === 2)
+        } else if (this.currentFilters.petType === 'universal') {
+          filtered = filtered.filter(p => p.product_eat_type === 3)
+        }
+      }
+
+      // 维度3：商品类型筛选
+      if (this.currentFilters.productType && this.currentFilters.productType !== '') {
+        filtered = filtered.filter(p => p.product_type_name === this.currentFilters.productType)
+      }
+
+      // 保存筛选后的完整数据
+      this.filteredProducts = filtered
+
+      // 只显示前20条（或 displayCount 条）
+      this.displayProducts = filtered.slice(0, this.displayCount)
+
+      // 判断是否有更多数据
+      this.hasMore = filtered.length > this.displayCount
+
+      console.log('筛选条件:', this.currentFilters)
+      console.log(`筛选结果: ${filtered.length}条，显示前${this.displayProducts.length}条`)
+    },
+
+    /**
+     * 加载更多
+     */
+    loadMore() {
+      if (this.loading || !this.hasMore) return
+
+      // 如果有筛选条件，显示更多筛选结果
+      if (this.filteredProducts.length > this.displayProducts.length) {
+        const currentLength = this.displayProducts.length
+        const nextLength = Math.min(currentLength + this.displayCount, this.filteredProducts.length)
+        this.displayProducts = this.filteredProducts.slice(0, nextLength)
+        this.hasMore = nextLength < this.filteredProducts.length
+        console.log(`加载更多筛选结果: ${currentLength} -> ${nextLength}`)
+        return
+      }
+
+      // 如果没有筛选条件或数据已全部加载，加载下一页
+      if (this.currentPage < TOTAL_PAGES) {
+        const nextPage = this.currentPage + 1
+        this.loadPage(nextPage)
+      }
+    },
+
+    /**
+     * 处理页面滚动
+     * @param {number} scrollTop - 滚动距离
+     */
+    handleScroll(scrollTop) {
+      const delta = scrollTop - this.lastScrollTop
+
+      // 上滑：隐藏 Banner
+      if (delta > 10 && scrollTop > 100) {
+        this.bannerVisible = false
+      }
+      // 下滑：显示 Banner
+      else if (delta < -10) {
+        this.bannerVisible = true
+      }
+
+      this.lastScrollTop = scrollTop
+    },
+
+    /**
+     * 处理筛选条件变化
+     * @param {Object} filters - 筛选条件对象
+     */
+    async handleFilterChange(filters) {
+      console.log('筛选条件变化:', filters)
+      this.currentFilters = { ...filters }
+
+      // 检查是否需要加载所有数据
+      if (this.currentPage < TOTAL_PAGES) {
+        console.log('正在加载所有数据以进行筛选...')
+        uni.showLoading({
+          title: '加载中...',
+          mask: true
+        })
+
+        // 加载所有剩余页面（使用静默模式）
+        for (let page = this.currentPage + 1; page <= TOTAL_PAGES; page++) {
+          try {
+            await this.loadPage(page, true)
+          } catch (error) {
+            console.error(`加载第${page}页失败:`, error)
+          }
+        }
+
+        uni.hideLoading()
+        console.log(`所有数据加载完成，共${this.allProducts.length}条`)
+      }
+
+      // 应用筛选
+      this.applyFilter()
+
+      // 提示用户
+      const filterText = []
+      if (filters.isNew) filterText.push('新品')
+      if (filters.petType === 'cat') filterText.push('猫')
+      if (filters.petType === 'dog') filterText.push('狗')
+      if (filters.petType === 'universal') filterText.push('通用')
+      if (filters.productType) filterText.push(filters.productType)
+
+      const text = filterText.length > 0 ? filterText.join(' + ') : '全部'
+
+      uni.showToast({
+        title: `${text}: ${this.filteredProducts.length}条`,
+        icon: 'none'
+      })
+    }
+  }
+}
+</script>
+
+<style scoped>
+.page {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.banner-placeholder {
+  width: 100%;
+  transition: height 0.3s ease-in-out;
+}
+</style>
