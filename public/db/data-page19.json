@@ -14,7 +14,9 @@
     "product_tastes": [
       "黄油小砖",
       "香草烤奶"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 362,
@@ -30,7 +32,9 @@
     "product_type_name": "冻干",
     "product_tastes": [
       "蛋液鳕鱼"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 363,
@@ -46,7 +50,9 @@
     "product_type_name": "冻干",
     "product_tastes": [
       "鸭肉褐藻大饼"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 364,
@@ -60,7 +66,9 @@
     "product_is_new": 0,
     "product_type_id": 7,
     "product_type_name": "冻干",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 365,
@@ -74,7 +82,9 @@
     "product_is_new": 0,
     "product_type_id": 7,
     "product_type_name": "冻干",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 366,
@@ -88,7 +98,9 @@
     "product_is_new": 0,
     "product_type_id": 7,
     "product_type_name": "冻干",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 367,
@@ -102,7 +114,9 @@
     "product_is_new": 0,
     "product_type_id": 7,
     "product_type_name": "冻干",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 368,
@@ -119,7 +133,9 @@
     "product_tastes": [
       "海藻",
       "羊初乳"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 369,
@@ -133,7 +149,9 @@
     "product_is_new": 0,
     "product_type_id": 7,
     "product_type_name": "冻干",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 370,
@@ -147,7 +165,9 @@
     "product_is_new": 0,
     "product_type_id": 7,
     "product_type_name": "冻干",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 371,
@@ -161,7 +181,9 @@
     "product_is_new": 0,
     "product_type_id": 7,
     "product_type_name": "冻干",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 372,
@@ -178,7 +200,9 @@
     "product_tastes": [
       "鸡兔",
       "鸭牛"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 373,
@@ -196,7 +220,9 @@
       "鱼肉",
       "鸡肉",
       "兔肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 374,
@@ -213,7 +239,9 @@
     "product_tastes": [
       "鸡肉",
       "兔肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 375,
@@ -235,7 +263,9 @@
       "兔兔莓果",
       "鸡肉鳕鱼",
       "草莓羊奶"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 376,
@@ -251,7 +281,9 @@
     "product_type_name": "冻干",
     "product_tastes": [
       "小肉饼"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 377,
@@ -270,7 +302,9 @@
       "鸡肉",
       "鸡兔",
       "鸡鹅"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 378,
@@ -286,6 +320,8 @@
     "product_type_name": "冻干",
     "product_tastes": [
       "鸭肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 1
   }
 ]

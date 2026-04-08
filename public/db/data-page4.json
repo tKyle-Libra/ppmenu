@@ -15,7 +15,9 @@
       "鹿肉灵芝",
       "麦卢卡蜂蜜",
       "猫草化毛"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 62,
@@ -33,7 +35,9 @@
       "火鸡",
       "兔肉",
       "鸽肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 63,
@@ -52,7 +56,9 @@
       "兔肉",
       "三文鱼",
       "鸽肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 64,
@@ -69,7 +75,9 @@
     "product_tastes": [
       "鲜奶鸡肉",
       "鲜奶三文鱼"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 65,
@@ -87,7 +95,9 @@
       "三文鱼南瓜",
       "鸭肉雪梨",
       "鸡肉苹果"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 66,
@@ -107,7 +117,9 @@
       "舒缓",
       "清新口气",
       "肠胃调理"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 67,
@@ -125,7 +137,9 @@
       "牛肉",
       "鸡肉",
       "鱼肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 68,
@@ -143,7 +157,9 @@
       "鸡肉",
       "牛肉",
       "马鲛鱼"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 69,
@@ -159,7 +175,9 @@
     "product_type_name": "罐头",
     "product_tastes": [
       "鸡肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 70,
@@ -177,7 +195,9 @@
       "鸡肉",
       "三文鱼",
       "牛肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 71,
@@ -196,7 +216,9 @@
       "禽肉",
       "牛肉",
       "猪肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 72,
@@ -214,7 +236,9 @@
       "鸭肉",
       "兔肉",
       "猪肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 73,
@@ -233,7 +257,9 @@
       "兔肉",
       "鸵鸟",
       "鹌鹑"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 74,
@@ -251,7 +277,9 @@
       "鸭肉",
       "鹿肉",
       "火鸡"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 75,
@@ -272,7 +300,9 @@
       "芭乐鸭",
       "笋笋鸭",
       "秋月梨鸭"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 76,
@@ -288,7 +318,9 @@
     "product_type_name": "罐头",
     "product_tastes": [
       "慕斯鸡肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 77,
@@ -307,7 +339,9 @@
       "沙棘鹿",
       "蓝莓兔",
       "苹果猪"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 78,
@@ -323,7 +357,9 @@
     "product_type_name": "罐头",
     "product_tastes": [
       "鸡肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 79,
@@ -339,7 +375,9 @@
     "product_type_name": "罐头",
     "product_tastes": [
       "鸡肉（幼）"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 80,
@@ -357,6 +395,8 @@
       "鸡肉",
       "三文鱼",
       "兔肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   }
 ]

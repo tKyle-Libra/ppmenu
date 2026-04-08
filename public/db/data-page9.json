@@ -17,7 +17,9 @@
       "液体钙",
       "乳铁蛋白",
       "五莓三花粉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 162,
@@ -39,7 +41,9 @@
       "多维矿",
       "补血肝精",
       "蛋白肽"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 163,
@@ -53,7 +57,9 @@
     "product_is_new": 0,
     "product_type_id": 9,
     "product_type_name": "其他",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 164,
@@ -67,7 +73,9 @@
     "product_is_new": 0,
     "product_type_id": 9,
     "product_type_name": "其他",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 165,
@@ -90,7 +98,9 @@
       "乌骨鸡",
       "鳕鱼",
       "骆驼"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 166,
@@ -109,7 +119,9 @@
       "牛肉芦笋",
       "鳕鱼牛油果",
       "鸭肉雪梨"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 167,
@@ -130,7 +142,9 @@
       "鲑鱼飞鱼籽",
       "兔肉大麦若叶",
       "牛肉乳铁蛋白"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 168,
@@ -148,7 +162,9 @@
       "保护关节",
       "美毛",
       "牛磺酸"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 1
   },
   {
     "product_id": 169,
@@ -167,7 +183,9 @@
       "兔肉",
       "鸭肉",
       "鳕鱼"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 170,
@@ -189,7 +207,9 @@
       "牛肉蔓越莓",
       "鸡肉大麦苗",
       "兔肉乳铁蛋白"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 171,
@@ -207,7 +227,9 @@
       "关节保护",
       "美毛",
       "清新口气"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 172,
@@ -226,7 +248,9 @@
       "兔",
       "乳鸽",
       "三文鱼"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 173,
@@ -243,7 +267,9 @@
     "product_tastes": [
       "鸭肉",
       "鸡肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 174,
@@ -262,7 +288,9 @@
       "鸭肉",
       "鱼肉",
       "兔肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 175,
@@ -279,7 +307,9 @@
     "product_tastes": [
       "三文鱼甜菜",
       "乳鸽大麦苗"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 176,
@@ -299,7 +329,9 @@
       "鸽",
       "兔",
       "牛"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 177,
@@ -318,7 +350,9 @@
       "磷虾油",
       "莓果",
       "大麦苗"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 178,
@@ -336,7 +370,9 @@
       "心脏",
       "壮骨",
       "满血"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 179,
@@ -350,7 +386,9 @@
     "product_is_new": 0,
     "product_type_id": 5,
     "product_type_name": "奶制品",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 180,
@@ -364,6 +402,8 @@
     "product_is_new": 0,
     "product_type_id": 5,
     "product_type_name": "奶制品",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   }
 ]

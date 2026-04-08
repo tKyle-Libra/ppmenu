@@ -16,7 +16,9 @@
       "火鸡",
       "兔肉",
       "牛肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 342,
@@ -34,7 +36,9 @@
       "鹿肉",
       "兔肉",
       "鸭肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 343,
@@ -57,7 +61,9 @@
       "鸭肉南瓜（清热去泪痕）",
       "鸡肉三文鱼（美毛）",
       "鸡肉火龙果（促进肠道吸收）"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 344,
@@ -75,7 +81,9 @@
       "鸭肉磷虾",
       "兔肉羊奶",
       "鸡肉猫草"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 345,
@@ -94,7 +102,9 @@
       "蔓越莓",
       "蓝莓",
       "草莓"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 346,
@@ -113,7 +123,9 @@
       "蔓越莓",
       "蓝莓",
       "草莓"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 347,
@@ -131,7 +143,9 @@
       "猫草鱼油",
       "蛋黄鱼油",
       "护心鱼油"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 348,
@@ -153,7 +167,9 @@
       "鸽肉猫草",
       "兔肉蔓越莓",
       "鸡肉南瓜"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 349,
@@ -170,7 +186,9 @@
     "product_tastes": [
       "血鹌鹑",
       "羊奶鸡（幼）"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 1
   },
   {
     "product_id": 350,
@@ -188,7 +206,9 @@
       "鸡肉",
       "鸽肉",
       "兔肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 351,
@@ -206,7 +226,9 @@
       "乌鸡麻黑",
       "山竹猪猪",
       "羊汁白玉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 352,
@@ -223,7 +245,9 @@
     "product_tastes": [
       "莓莓虾仁",
       "生酪鸡块"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 353,
@@ -239,7 +263,9 @@
     "product_type_name": "冻干",
     "product_tastes": [
       "鹿肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 354,
@@ -255,7 +281,9 @@
     "product_type_name": "冻干",
     "product_tastes": [
       "兔肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 355,
@@ -271,7 +299,9 @@
     "product_type_name": "冻干",
     "product_tastes": [
       "草莓鲜鸡"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 356,
@@ -287,7 +317,9 @@
     "product_type_name": "冻干",
     "product_tastes": [
       "鸡肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 357,
@@ -303,7 +335,9 @@
     "product_type_name": "冻干",
     "product_tastes": [
       "鸡肉鹅肝巴西莓"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 358,
@@ -320,7 +354,9 @@
     "product_tastes": [
       "鸡肉三文鱼",
       "鸡肉山羊奶"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 359,
@@ -344,7 +380,9 @@
       "美毛荷包蛋",
       "魔力菇菇",
       "灭火鸭肉梨"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 360,
@@ -360,6 +398,8 @@
     "product_type_name": "冻干",
     "product_tastes": [
       "幼猫"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   }
 ]

@@ -11,7 +11,9 @@
     "product_is_new": 0,
     "product_type_id": 5,
     "product_type_name": "奶制品",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 182,
@@ -25,7 +27,9 @@
     "product_is_new": 0,
     "product_type_id": 5,
     "product_type_name": "奶制品",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 183,
@@ -39,7 +43,9 @@
     "product_is_new": 0,
     "product_type_id": 5,
     "product_type_name": "奶制品",
-    "product_tastes": []
+    "product_tastes": [],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 184,
@@ -58,7 +64,9 @@
       "畅爽嘘嘘小红包",
       "身体壮壮小蓝包",
       "能量充电小黄包"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 185,
@@ -75,7 +83,9 @@
     "product_tastes": [
       "芝士",
       "焦糖"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 186,
@@ -94,7 +104,9 @@
       "奇异果羊奶",
       "木瓜牛奶",
       "树莓牛奶"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 187,
@@ -111,7 +123,9 @@
     "product_tastes": [
       "蜂花紫薯草莓",
       "南瓜苹果白茅根"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 188,
@@ -128,7 +142,9 @@
     "product_tastes": [
       "石榴兔",
       "南瓜鸡"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 189,
@@ -146,7 +162,9 @@
       "鸡肉",
       "兔肉",
       "蛋黄"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 190,
@@ -162,7 +180,9 @@
     "product_type_name": "奶制品",
     "product_tastes": [
       "莓果车前子"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 1
   },
   {
     "product_id": 191,
@@ -179,7 +199,9 @@
     "product_tastes": [
       "草莓",
       "香蕉"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 192,
@@ -197,7 +219,9 @@
       "乳钙",
       "南瓜",
       "蛋黄"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 193,
@@ -218,7 +242,9 @@
       "黑芝麻",
       "蔓越莓",
       "藻蓝蛋白"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 194,
@@ -239,7 +265,9 @@
       "鸡肉三文鱼",
       "鸡肉青口贝藻蓝",
       "鸡肉鸭肉绿藻"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 195,
@@ -256,7 +284,9 @@
     "product_tastes": [
       "玻尿酸",
       "后生元"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 196,
@@ -273,7 +303,9 @@
     "product_tastes": [
       "玻尿酸",
       "后生元"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 197,
@@ -291,7 +323,9 @@
       "乳铁蛋白",
       "鱼油",
       "益生元"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 198,
@@ -310,7 +344,9 @@
       "小绿杯（排毛）",
       "小蓝杯（靓毛）",
       "小粉杯（嘘嘘）"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 0
   },
   {
     "product_id": 199,
@@ -326,7 +362,9 @@
     "product_type_name": "奶制品",
     "product_tastes": [
       "三种莓果"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 1
   },
   {
     "product_id": 200,
@@ -342,6 +380,8 @@
     "product_type_name": "奶制品",
     "product_tastes": [
       "草莓"
-    ]
+    ],
+    "is_young": 1,
+    "is_snacks": 1
   }
 ]

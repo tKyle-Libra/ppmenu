@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 生成三维筛选配置文件
+ * 生成四维筛选配置文件
  */
 
 const fs = require('fs')
@@ -39,7 +39,7 @@ async function loadAllData() {
   return allData
 }
 
-// 生成三维筛选配置
+// 生成四维筛选配置
 function generateFilterDimensions(products) {
   // 维度1：新品筛选
   const newProducts = products.filter(p => p.product_is_new === 1)
@@ -58,10 +58,12 @@ function generateFilterDimensions(products) {
     }
   ]
 
-  // 维度2：宠物类型
+  // 维度2：宠物类型 + 幼猫
   const catCount = products.filter(p => p.product_eat_type === 1).length
   const dogCount = products.filter(p => p.product_eat_type === 2).length
   const universalCount = products.filter(p => p.product_eat_type === 3).length
+  // 幼猫：is_young=1 的商品
+  const youngCount = products.filter(p => p.is_young === 1).length
 
   const dimension2 = [
     {
@@ -87,10 +89,16 @@ function generateFilterDimensions(products) {
       name: '通用',
       value: 'universal',
       count: universalCount
+    },
+    {
+      id: 'young',
+      name: '幼猫',
+      value: 'young',
+      count: youngCount
     }
   ]
 
-  // 维度3：商品类型（使用之前的逻辑）
+  // 维度3：商品类型
   const categoryMap = new Map()
   products.forEach(product => {
     const typeName = product.product_type_name
@@ -128,6 +136,31 @@ function generateFilterDimensions(products) {
     })
   })
 
+  // 维度4：零食
+  const snacksCount = products.filter(p => p.is_snacks === 1).length
+  const noSnacksCount = products.filter(p => p.is_snacks === 0).length
+
+  const dimension4 = [
+    {
+      id: 'all',
+      name: '全部',
+      value: '',
+      count: products.length
+    },
+    {
+      id: 'snacks',
+      name: '零食',
+      value: '1',
+      count: snacksCount
+    },
+    {
+      id: 'no-snacks',
+      name: '非零食',
+      value: '0',
+      count: noSnacksCount
+    }
+  ]
+
   return {
     dimensions: [
       {
@@ -144,6 +177,11 @@ function generateFilterDimensions(products) {
         id: 3,
         name: '类型',
         options: dimension3
+      },
+      {
+        id: 4,
+        name: '零食',
+        options: dimension4
       }
     ]
   }
@@ -156,7 +194,7 @@ async function main() {
     const allProducts = await loadAllData()
     console.log(`\n📊 总数据量: ${allProducts.length}条`)
 
-    // 2. 生成三维配置
+    // 2. 生成四维配置
     const filterConfig = generateFilterDimensions(allProducts)
 
     // 3. 确保输出目录存在
@@ -172,7 +210,7 @@ async function main() {
       'utf-8'
     )
 
-    console.log(`\n✅ 三维筛选配置已生成: ${OUTPUT_FILE}`)
+    console.log(`\n✅ 四维筛选配置已生成: ${OUTPUT_FILE}`)
     console.log(`\n📋 配置内容:`)
     console.log(JSON.stringify(filterConfig, null, 2))
 

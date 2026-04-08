@@ -45,6 +45,12 @@
           "name": "通用",
           "value": "universal",
           "count": 112
+        },
+        {
+          "id": "young",
+          "name": "幼猫",
+          "value": "young",
+          "count": 41
         }
       ]
     },
@@ -120,6 +126,30 @@
           "value": "其他",
           "count": 9,
           "type_id": 9
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "零食",
+      "options": [
+        {
+          "id": "all",
+          "name": "全部",
+          "value": "",
+          "count": 378
+        },
+        {
+          "id": "snacks",
+          "name": "零食",
+          "value": "1",
+          "count": 18
+        },
+        {
+          "id": "no-snacks",
+          "name": "非零食",
+          "value": "0",
+          "count": 360
         }
       ]
     }

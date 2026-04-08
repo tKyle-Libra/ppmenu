@@ -16,7 +16,9 @@
       "甜虾羊奶",
       "鸽肉羊奶",
       "三文鱼蛋黄"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 222,
@@ -35,7 +37,9 @@
       "鸭肉",
       "兔肉",
       "磷虾"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 223,
@@ -53,7 +57,9 @@
       "胃肠道",
       "泌尿道",
       "康复"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 224,
@@ -71,7 +77,9 @@
       "蛋奶鱼",
       "蛋奶鸡",
       "蛋奶鸽"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 225,
@@ -93,7 +101,9 @@
       "鸡肉石榴",
       "兔肉蓝莓",
       "鳕鱼三文鱼籽芝士"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 226,
@@ -114,7 +124,9 @@
       "牛肉",
       "贻贝",
       "榴莲"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 227,
@@ -135,7 +147,9 @@
       "蓝莓树莓",
       "猕猴桃羽衣甘蓝",
       "芝士雪梨"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 228,
@@ -154,7 +168,9 @@
       "鸽鸽姜黄",
       "番茄树莓兔",
       "乌鸡磷虾黑芝麻"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 229,
@@ -173,7 +189,9 @@
       "鸡兔蛋黄",
       "鸡肉蓝莓",
       "鸡肉麦苗"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 230,
@@ -190,7 +208,9 @@
     "product_tastes": [
       "草莓蛋黄海藻",
       "蓝莓三文鱼南瓜"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 231,
@@ -207,7 +227,9 @@
     "product_tastes": [
       "鸡肉乳鸽",
       "鸭肉兔肉"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 232,
@@ -225,7 +247,9 @@
       "鸡肉乳鸽",
       "鸡肉兔肉",
       "鸡肉鳗鱼"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 233,
@@ -243,7 +267,9 @@
       "开心果兔兔",
       "莲雾嘟嘟鸡",
       "水蜜桃小鹿"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 234,
@@ -261,7 +287,9 @@
       "鸡肉兔兔",
       "鸡肉鹅鹅",
       "鸡肉芝士"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 235,
@@ -279,7 +307,9 @@
       "树莓猪",
       "蓝莓兔",
       "草莓鸡"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 236,
@@ -295,7 +325,9 @@
     "product_type_name": "餐盒",
     "product_tastes": [
       "鸡肉小龙虾"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 237,
@@ -313,7 +345,9 @@
       "鸽肉草莓蜂蜜➕鸡肉蛋黄羊奶蜂蜜",
       "兔肉桑葚蜂蜜➕鸡肉蔓越莓羊奶",
       "猪肉蛋黄姜黄➕鸡肉椰子羊奶蜂蜜"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 238,
@@ -329,7 +363,9 @@
     "product_type_name": "餐盒",
     "product_tastes": [
       "黄西瓜鸭肉莲子"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 239,
@@ -345,7 +381,9 @@
     "product_type_name": "餐盒",
     "product_tastes": [
       "黑芝麻乌鸡"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   },
   {
     "product_id": 240,
@@ -362,6 +400,8 @@
     "product_tastes": [
       "鸡肉莓莓",
       "兔肉莓莓"
-    ]
+    ],
+    "is_young": 0,
+    "is_snacks": 0
   }
 ]

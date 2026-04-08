@@ -44,7 +44,8 @@ export default {
       currentFilters: {
         isNew: '', // 新品筛选
         petType: '', // 宠物类型
-        productType: '' // 商品类型
+        productType: '', // 商品类型
+        isSnacks: '' // 零食筛选
       },
       displayCount: 20, // 每页显示数量
       bannerHeight: 300 // Banner 高度
@@ -131,7 +132,7 @@ export default {
     },
 
     /**
-     * 应用三维筛选条件
+     * 应用四维筛选条件
      */
     applyFilter() {
       let filtered = this.allProducts
@@ -149,12 +150,19 @@ export default {
           filtered = filtered.filter(p => p.product_eat_type === 2)
         } else if (this.currentFilters.petType === 'universal') {
           filtered = filtered.filter(p => p.product_eat_type === 3)
+        } else if (this.currentFilters.petType === 'young') {
+          filtered = filtered.filter(p => p.is_young === 1)
         }
       }
 
       // 维度3：商品类型筛选
       if (this.currentFilters.productType && this.currentFilters.productType !== '') {
         filtered = filtered.filter(p => p.product_type_name === this.currentFilters.productType)
+      }
+
+      // 维度4：零食筛选
+      if (this.currentFilters.isSnacks && this.currentFilters.isSnacks !== '') {
+        filtered = filtered.filter(p => p.is_snacks === parseInt(this.currentFilters.isSnacks))
       }
 
       // 保存筛选后的完整数据
@@ -250,7 +258,10 @@ export default {
       if (filters.petType === 'cat') filterText.push('猫')
       if (filters.petType === 'dog') filterText.push('狗')
       if (filters.petType === 'universal') filterText.push('通用')
+      if (filters.petType === 'young') filterText.push('幼猫')
       if (filters.productType) filterText.push(filters.productType)
+      if (filters.isSnacks === '1') filterText.push('零食')
+      if (filters.isSnacks === '0') filterText.push('非零食')
 
       const text = filterText.length > 0 ? filterText.join(' + ') : '全部'
 

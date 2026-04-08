@@ -47,6 +47,21 @@
         </view>
       </view>
     </view>
+
+    <!-- 维度4：零食 -->
+    <view class="filter-row">
+      <view class="filter-content">
+        <view
+          v-for="item in dimension4"
+          :key="item.id"
+          class="filter-item"
+          :class="{ active: activeFilter4 === item.id }"
+          @tap="handleFilterChange(4, item)"
+        >
+          <text class="filter-text">{{ item.name }}</text>
+        </view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -66,13 +81,16 @@ export default {
       dimension1: filterConfig.dimensions[0].options,
       dimension2: filterConfig.dimensions[1].options,
       dimension3: filterConfig.dimensions[2].options,
+      dimension4: filterConfig.dimensions[3].options,
       activeFilter1: 'all',
       activeFilter2: 'all',
       activeFilter3: 'all',
+      activeFilter4: 'all',
       currentFilters: {
         isNew: '',
         petType: '',
-        productType: ''
+        productType: '',
+        isSnacks: ''
       }
     }
   },
@@ -82,10 +100,12 @@ export default {
       this.activeFilter1 = 'all'
       this.activeFilter2 = 'all'
       this.activeFilter3 = 'all'
+      this.activeFilter4 = 'all'
       this.currentFilters = {
         isNew: '',
         petType: '',
-        productType: ''
+        productType: '',
+        isSnacks: ''
       }
 
       // 更新当前点击的维度
@@ -98,6 +118,9 @@ export default {
       } else if (dimensionId === 3) {
         this.activeFilter3 = item.id
         this.currentFilters.productType = item.value
+      } else if (dimensionId === 4) {
+        this.activeFilter4 = item.id
+        this.currentFilters.isSnacks = item.value
       }
 
       // 触发筛选事件
