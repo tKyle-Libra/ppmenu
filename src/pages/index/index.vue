@@ -228,7 +228,6 @@ export default {
         console.log(`加载更多已加载数据: ${currentLength} -> ${nextLength}`)
       }
     },
-    },
 
     /**
      * 处理页面滚动
