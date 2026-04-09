@@ -74,6 +74,31 @@ export default {
     bannerVisible: {
       type: Boolean,
       default: true
+    },
+    currentFilters: {
+      type: Object,
+      default: () => ({
+        isNew: 'all',
+        petType: 'all',
+        productType: 'all',
+        isSnacks: 'all'
+      })
+    }
+  },
+  watch: {
+    currentFilters: {
+      handler(newFilters) {
+        // 当父组件更新筛选条件时，同步更新UI状态
+        console.log('FilterDimensions: 接收到筛选条件更新', newFilters)
+
+        // 根据筛选值找到对应的选项ID
+        this.activeFilter1 = this.findOptionId(1, newFilters.isNew)
+        this.activeFilter2 = this.findOptionId(2, newFilters.petType)
+        this.activeFilter3 = this.findOptionId(3, newFilters.productType)
+        this.activeFilter4 = this.findOptionId(4, newFilters.isSnacks)
+      },
+      deep: true,
+      immediate: false
     }
   },
   data() {
@@ -85,34 +110,56 @@ export default {
       activeFilter1: 'all',
       activeFilter2: 'all',
       activeFilter3: 'all',
-      activeFilter4: 'all',
-      currentFilters: {
-        isNew: '',
-        petType: '',
-        productType: '',
-        isSnacks: ''
-      }
+      activeFilter4: 'all'
     }
   },
   methods: {
     handleFilterChange(dimensionId, item) {
-      // 只重置当前维度的选项
+      // 更新UI状态
       if (dimensionId === 1) {
         this.activeFilter1 = item.id
-        this.currentFilters.isNew = item.value
       } else if (dimensionId === 2) {
         this.activeFilter2 = item.id
-        this.currentFilters.petType = item.value
       } else if (dimensionId === 3) {
         this.activeFilter3 = item.id
-        this.currentFilters.productType = item.value
       } else if (dimensionId === 4) {
         this.activeFilter4 = item.id
-        this.currentFilters.isSnacks = item.value
+      }
+
+      // 构建筛选条件对象
+      const filters = {
+        isNew: dimensionId === 1 ? item.value : this.currentFilters.isNew,
+        petType: dimensionId === 2 ? item.value : this.currentFilters.petType,
+        productType: dimensionId === 3 ? item.value : this.currentFilters.productType,
+        isSnacks: dimensionId === 4 ? item.value : this.currentFilters.isSnacks
       }
 
       // 触发筛选事件
-      this.$emit('filter-change', this.currentFilters)
+      this.$emit('filter-change', filters)
+    },
+
+    /**
+     * 根据筛选值找到对应的选项ID
+     * @param {number} dimensionId - 维度ID（1-4）
+     * @param {string} value - 筛选值
+     * @returns {string} 选项ID
+     */
+    findOptionId(dimensionId, value) {
+      let options = []
+
+      if (dimensionId === 1) {
+        options = this.dimension1
+      } else if (dimensionId === 2) {
+        options = this.dimension2
+      } else if (dimensionId === 3) {
+        options = this.dimension3
+      } else if (dimensionId === 4) {
+        options = this.dimension4
+      }
+
+      // 查找匹配的选项
+      const option = options.find(opt => opt.value === value)
+      return option ? option.id : 'all'
     }
   }
 }
@@ -120,7 +167,8 @@ export default {
 
 <style scoped>
 .filter-dimensions {
-  position: relative;
+  position: sticky;
+  top: 0;
   width: 100%;
   z-index: 100;
   background-color: #ffffff;

@@ -1,6 +1,7 @@
 /**
  * 网络请求工具
  */
+import { BASE_URL } from './config.js'
 
 /**
  * 加载指定页的数据
@@ -10,16 +11,60 @@
 export async function loadPageData(pageNum) {
   try {
     const fileName = `data-page${pageNum}.json`
+    console.log('正在请求:', `${getDataBaseUrl()}${fileName}`)
+
     const response = await uni.request({
-      url: `${getDataBaseUrl()}${fileName}`,
+      url: `${getDataBaseUrl()}${fileName}?t=${new Date().getTime()}`,
       method: 'GET'
     })
 
-    if (response[0] && response[0].statusCode === 200) {
-      return response[0].data || response[1].data || []
+    console.log('uni.request 原始返回:', response)
+
+    // uni.request 在不同环境下的返回格式不同
+    // H5: [response, error] 或 [error, response]
+    // 小程序: { statusCode, data }
+    let data = null
+
+    if (Array.isArray(response)) {
+      // H5 环境，response 是数组
+      const item0 = response[0]
+      const item1 = response[1]
+
+      if (item0 && item0.statusCode === 200) {
+        data = item0.data
+      } else if (item1 && item1.statusCode === 200) {
+        data = item1.data
+      } else {
+        console.error('HTTP 错误:', item0?.statusCode || item1?.statusCode)
+        console.error('响应内容:', item0 || item1)
+        return []
+      }
+    } else if (response && response.statusCode === 200) {
+      // 小程序环境，response 是对象
+      data = response.data
+    } else {
+      console.error('未知响应格式:', response)
+      return []
     }
 
-    return []
+    console.log('解析后的数据:', data)
+    console.log('数据类型:', typeof data)
+    console.log('是否为数组:', Array.isArray(data))
+    console.log('是否包含 data 属性:', data && typeof data === 'object' && 'data' in data)
+
+    // 检查数据格式
+    if (Array.isArray(data)) {
+      // 如果直接返回数组
+      console.log('直接返回数组，长度:', data.length)
+      return data
+    } else if (data && typeof data === 'object' && data.data) {
+      // 如果返回 {code: 200, data: [...]}
+      console.log('返回对象，data 数组长度:', data.data.length)
+      return data.data
+    } else {
+      console.error('数据格式错误:', data)
+      return []
+    }
   } catch (error) {
     console.error('加载数据失败:', error)
     return []
@@ -28,22 +73,13 @@ export async function loadPageData(pageNum) {
 
 /**
  * 获取数据基础URL
- * 在开发环境使用本地路径，生产环境使用CDN
+ * 统一使用 GitHub CDN
  * @returns {string}
  */
 function getDataBaseUrl() {
-  // #ifdef MP-WEIXIN || MP-TOUTIAO
-  // 小程序环境，需要配置服务器域名
-  return 'https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/db/'
-  // #endif
-
-  // #ifdef H5
-  // H5环境，可以使用相对路径或CDN
-  return '/db/'
-  // #endif
-
-  // 默认返回本地路径
-  return '/db/'
+  // 统一使用 GitHub CDN（所有环境）
+  // 使用 BASE_URL 常量（来自 config.js）
+  return BASE_URL + 'db/'
 }
 
 /**
@@ -54,23 +90,74 @@ function getDataBaseUrl() {
  * @returns {string} 处理后的图片URL
  */
 export function processImageUrl(imgUrl, typeId, baseUrl) {
-  if (!imgUrl) return ''
+  if (!imgUrl) return `${baseUrl}default.jpg`
+
+  // 如果是default.png，直接使用default.jpg
+  if (imgUrl.includes('default.png') || imgUrl === 'default.png') {
+    return `${baseUrl}default.jpg`
+  }
 
   // 如果已经是完整URL，直接返回
   if (imgUrl.startsWith('http')) {
     return imgUrl
   }
 
-  // 拼接完整URL
-  const typePath = getTypePath(typeId)
-  let fullUrl = `${baseUrl}${typePath}${imgUrl}`
+  // 暂时使用原图（等CDN同步缩略图后再优化）
+  const typePaths = ['jb/', 'cb/', 'gt/', 'ch/', 'nzp/', 'tang/', 'dg/', 'mt/', 'other/']
+  const hasPrefix = typePaths.some(path => imgUrl.startsWith(path))
 
-  // 如果没有扩展名，添加.png
-  if (!fullUrl.endsWith('.png') && !fullUrl.endsWith('.jpg')) {
-    fullUrl += '.png'
+  if (hasPrefix) {
+    // 已包含前缀
+    let fullUrl = `${baseUrl}${imgUrl}`
+    if (!fullUrl.endsWith('.png') && !fullUrl.endsWith('.jpg') && !fullUrl.endsWith('.jpeg')) {
+      fullUrl += '.png'
+    }
+    return fullUrl
+  } else {
+    // 没有前缀，添加类型路径
+    const typePath = getTypePath(typeId)
+    let fullUrl = `${baseUrl}${typePath}${imgUrl}`
+    if (!fullUrl.endsWith('.png') && !fullUrl.endsWith('.jpg') && !fullUrl.endsWith('.jpeg')) {
+      fullUrl += '.png'
+    }
+    return fullUrl
+  }
+}
+
+/**
+ * 获取原图URL（作为fallback）
+ * @param {string} imgUrl - 原始图片路径
+ * @param {number} typeId - 类型ID
+ * @param {string} baseUrl - CDN基础URL
+ * @returns {string} 原图URL
+ */
+export function getOriginalImageUrl(imgUrl, typeId, baseUrl) {
+  if (!imgUrl) return `${baseUrl}default.jpg`
+
+  // 如果已经是完整URL，直接返回
+  if (imgUrl.startsWith('http')) {
+    return imgUrl
   }
 
-  return fullUrl
+  const typePaths = ['jb/', 'cb/', 'gt/', 'ch/', 'nzp/', 'tang/', 'dg/', 'mt/', 'other/']
+  const hasPrefix = typePaths.some(path => imgUrl.startsWith(path))
+
+  if (hasPrefix) {
+    // 已包含前缀
+    let fullUrl = `${baseUrl}${imgUrl}`
+    if (!fullUrl.endsWith('.png') && !fullUrl.endsWith('.jpg') && !fullUrl.endsWith('.jpeg')) {
+      fullUrl += '.png'
+    }
+    return fullUrl
+  } else {
+    // 没有前缀，添加类型路径
+    const typePath = getTypePath(typeId)
+    let fullUrl = `${baseUrl}${typePath}${imgUrl}`
+    if (!fullUrl.endsWith('.png') && !fullUrl.endsWith('.jpg') && !fullUrl.endsWith('.jpeg')) {
+      fullUrl += '.png'
+    }
+    return fullUrl
+  }
 }
 
 /**

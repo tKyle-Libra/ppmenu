@@ -1,21 +1,16 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
 node_modules
-.DS_Store
 dist
+.DS_Store
+
+# 本地配置文件（包含敏感信息）
+github-token.conf
+.env
 *.local
 
-# Editor directories and files
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# 数据文件（从 GitHub CDN 加载）
+src/db/
+public/db/
+*.json
+!src/data/*.json
+!package.json
+!package-lock.json

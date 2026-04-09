@@ -4,10 +4,19 @@
     <BannerSwiper :show="bannerVisible" />
 
     <!-- 三维筛选栏 -->
-    <FilterDimensions :banner-visible="bannerVisible" :current-filters="currentFilters" @filter-change="handleFilterChange" />
+    <FilterDimensions
+      :banner-visible="bannerVisible"
+      :current-filters="currentFilters"
+      @filter-change="handleFilterChange"
+    />
 
     <!-- 商品列表 -->
-    <ProductList :products="displayProducts" :loading="loading" />
+    <ProductList
+      :products="displayProducts"
+      :loading="loading"
+      :is-filtering="isFiltering"
+    />
+    />
 
     <!-- 加载状态 -->
     <LoadingState :loading="loading" :has-more="hasMore" />
@@ -22,7 +31,6 @@ import LoadingState from '@/components/LoadingState/LoadingState.vue'
 import { loadPageData } from '@/utils/data.js'
 import { processTastes } from '@/utils/request.js'
 import { TOTAL_PAGES } from '@/utils/config.js'
-import filterConfig from '@/data/filter-dimensions.json'
 
 export default {
   name: 'Index',
@@ -43,34 +51,22 @@ export default {
       bannerVisible: true, // Banner 是否可见
       lastScrollTop: 0, // 上次滚动位置
       currentFilters: {
-        isNew: '', // 新品筛选
-        petType: '', // 宠物类型
-        productType: '', // 商品类型
-        isSnacks: '' // 零食筛选
+        isNew: 'all', // 新品筛选
+        petType: 'all', // 宠物类型
+        productType: 'all', // 商品类型
+        isSnacks: 'all' // 零食筛选
+      },
+      lastValidFilters: {
+        // 上一次有效的筛选条件
+        isNew: 'all',
+        petType: 'all',
+        productType: 'all',
+        isSnacks: 'all'
       },
       displayCount: 20, // 每页显示数量
       bannerHeight: 300, // Banner 高度
-      typeNameMap: {} // 类型ID到名称的映射
+      isFiltering: false // 是否正在筛选重置
     }
-  },
-  created() {
-    console.log('🚀 ========== INDEX PAGE CREATED ==========')
-    console.log('📅 代码版本: 2026-04-08 23:54')
-    console.log('✨ 这条日志应该总是显示')
-
-    // 在 created 中初始化 filterConfig
-    this.filterConfig = filterConfig
-    console.log('filterConfig 已初始化:', !!this.filterConfig)
-    console.log('filterConfig dimensions:', this.filterConfig?.dimensions?.length)
-
-    // 创建类型ID到名称的映射
-    this.typeNameMap = {}
-    const typeOptions = this.filterConfig.dimensions[2].options
-    typeOptions.forEach(opt => {
-      if (opt.type_id) {
-        this.typeNameMap[opt.type_id] = opt.value
-      }
-    })
   },
   onLoad() {
     console.log('页面加载')
@@ -95,47 +91,7 @@ export default {
       this.hasMore = true
       this.displayCount = 20
 
-      // 首次加载时，并行加载所有数据
-      console.log('📦 首次加载，正在并行加载所有数据...')
-      console.log('TOTAL_PAGES:', TOTAL_PAGES)
-      this.loading = true
-
-      try {
-        // 创建所有页面的加载任务
-        const loadTasks = []
-        for (let page = 1; page <= TOTAL_PAGES; page++) {
-          loadTasks.push(
-            loadPageData(page).then(data => ({ page, data }))
-          )
-        }
-
-        // 并行加载所有页面
-        const results = await Promise.all(loadTasks)
-
-        // 按页码排序并处理数据
-        results.sort((a, b) => a.page - b.page)
-
-        for (const { page, data: pageData } of results) {
-          const processedData = this.processData(pageData)
-          console.log(`第${page}页: 原始${pageData.length}条 → 处理后${processedData.length}条`)
-          this.allProducts = [...this.allProducts, ...processedData]
-          this.currentPage = page
-        }
-
-        console.log(`✅ 所有数据加载完成，共${this.allProducts.length}条`)
-        this.hasMore = false
-
-        // 应用筛选，显示所有数据
-        this.applyFilter()
-      } catch (error) {
-        console.error('加载失败:', error)
-        uni.showToast({
-          title: '加载失败，请重试',
-          icon: 'none'
-        })
-      } finally {
-        this.loading = false
-      }
+      await this.loadPage(1, false)
     },
 
     /**
@@ -194,29 +150,7 @@ export default {
     processData(rawData) {
       return rawData.map(item => ({
         ...item,
-        // 映射所有字段，兼容 ProductCard 组件
-        product_id: item.id,
-        product_name: item.name,
-        product_price: item.price,
-        product_img: item.image,
-        product_weight: item.weight,
-        product_is_new: item.isNew ? 1 : 0,
-        product_eat_type: item.eatType,
-        product_type_id: item.typeId,
-        product_type_name: this.typeNameMap[item.typeId] || '',
-        brand_name: item.brand,
-        product_tastes: processTastes(item.tastes),
-        // 保留原字段用于筛选
-        id: item.id,
-        name: item.name,
-        price: item.price,
-        image: item.image,
-        weight: item.weight,
-        isNew: item.isNew,
-        eatType: item.eatType,
-        typeId: item.typeId,
-        brand: item.brand,
-        tastes: item.tastes
+        product_tastes: processTastes(item.product_tastes)
       }))
     },
 
@@ -225,82 +159,109 @@ export default {
      */
     applyFilter() {
       console.log('===== applyFilter 开始 =====')
+      console.log('当前 isFiltering:', this.isFiltering)
       console.log('当前筛选条件:', this.currentFilters)
-      console.log('allProducts 总数:', this.allProducts.length)
+
+      // 先隐藏骨架屏
+      this.isFiltering = false
 
       let filtered = this.allProducts
+      let needReset = false
 
       // 维度1：新品筛选（'all' 或空字符串表示不筛选）
       if (this.currentFilters.isNew && this.currentFilters.isNew !== '' && this.currentFilters.isNew !== 'all') {
-        const beforeLen = filtered.length
         filtered = filtered.filter(p => p.product_is_new === 1)
-        console.log('✨ 新品筛选:', beforeLen, '→', filtered.length)
+        console.log('新品筛选后:', filtered.length, '条')
+        if (filtered.length === 0) {
+          console.warn('⚠️ 新品筛选：无数据，需要重置')
+          this.currentFilters.isNew = 'all'
+          needReset = true
+        }
       }
 
       // 维度2：宠物类型筛选（'all' 或空字符串表示不筛选）
       if (this.currentFilters.petType && this.currentFilters.petType !== '' && this.currentFilters.petType !== 'all') {
-        const beforeLen = filtered.length
+        let tempFiltered = filtered
+
         if (this.currentFilters.petType === 'cat') {
-          filtered = filtered.filter(p => p.product_eat_type === 1)
+          tempFiltered = filtered.filter(p => p.product_eat_type === 1)
         } else if (this.currentFilters.petType === 'dog') {
-          filtered = filtered.filter(p => p.product_eat_type === 2)
+          tempFiltered = filtered.filter(p => p.product_eat_type === 2)
         } else if (this.currentFilters.petType === 'universal') {
-          filtered = filtered.filter(p => p.product_eat_type === 3)
+          tempFiltered = filtered.filter(p => p.product_eat_type === 3)
         } else if (this.currentFilters.petType === 'young') {
-          filtered = filtered.filter(p => p.is_young === 1)
+          console.warn('幼猫筛选暂时禁用')
+          tempFiltered = []
         }
-        console.log('🐱 宠物类型筛选:', this.currentFilters.petType, beforeLen, '→', filtered.length)
+
+        console.log('宠物类型筛选后:', tempFiltered.length, '条')
+        if (tempFiltered.length === 0) {
+          console.warn(`⚠️ 宠物类型筛选（${this.currentFilters.petType}）：无数据，需要重置`)
+          this.currentFilters.petType = 'all'
+          needReset = true
+        } else {
+          filtered = tempFiltered
+        }
       }
 
       // 维度3：商品类型筛选（'all' 或空字符串表示不筛选）
       if (this.currentFilters.productType && this.currentFilters.productType !== '' && this.currentFilters.productType !== 'all') {
-        const beforeLen = filtered.length
+        const tempFiltered = filtered.filter(p => p.product_type_name === this.currentFilters.productType)
+        console.log('商品类型筛选后:', tempFiltered.length, '条')
 
-        // 直接使用导入的 filterConfig（不通过 this）
-        const typeConfig = filterConfig.dimensions[2].options.find(
-          opt => opt.value === this.currentFilters.productType
-        )
-        const targetTypeId = typeConfig?.type_id
-
-        console.log('📦 商品类型筛选:', this.currentFilters.productType, '→ type_id:', targetTypeId)
-
-        if (targetTypeId) {
-          filtered = filtered.filter(p => p.product_type_id === targetTypeId)
-          console.log('✅ 筛选结果:', beforeLen, '→', filtered.length, '条')
+        if (tempFiltered.length === 0) {
+          console.warn(`⚠️ 商品类型筛选（${this.currentFilters.productType}）：无数据，需要重置`)
+          this.currentFilters.productType = 'all'
+          needReset = true
         } else {
-          console.warn('⚠️ 未找到类型配置:', this.currentFilters.productType)
+          filtered = tempFiltered
         }
       }
 
-      // 维度4：零食筛选（暂时注释）
-      // if (this.currentFilters.isSnacks && this.currentFilters.isSnacks !== '' && this.currentFilters.isSnacks !== 'all') {
-      //   filtered = filtered.filter(p => p.is_snacks === parseInt(this.currentFilters.isSnacks))
-      // }
+      console.log('needReset:', needReset)
+      console.log('最终筛选结果:', filtered.length, '条')
 
-      // 保存筛选后的完整数据
+      // 如果有任何维度被重置，显示骨架屏并重新筛选
+      if (needReset) {
+        console.log('🔄 需要重置筛选条件')
+        console.log('📺 显示骨架屏（设置 isFiltering = true）')
+
+        this.isFiltering = true
+
+        // 使用 $nextTick 确保 DOM 更新
+        this.$nextTick(() => {
+          console.log('DOM 更新完成')
+          // 延迟 300ms 后重新筛选
+          setTimeout(() => {
+            console.log('⏰ 延迟结束，重新执行筛选')
+            console.log('📺 隐藏骨架屏（设置 isFiltering = false）')
+            this.isFiltering = false
+            this.applyFilter()
+          }, 300)
+        })
+        return
+      }
+
+      // 筛选完成，保存结果
+      console.log('✅ 筛选完成，保存结果')
+
       this.filteredProducts = filtered
-
-      // 只显示前20条（或 displayCount 条）
       this.displayProducts = filtered.slice(0, this.displayCount)
+      this.hasMore = filtered.length > this.displayCount.length
 
-      // 判断是否有更多数据（比较筛选结果总数和当前显示数量）
-      this.hasMore = filtered.length > this.displayProducts.length
-
-      console.log('最终结果:', filtered.length, '条，显示', this.displayProducts.length, '条')
       console.log('===== applyFilter 结束 =====')
     },
 
     /**
      * 检查是否有激活的筛选条件
-     * 'all' 或空字符串表示不筛选
+     * 'all' 表示不筛选，空字符串也表示不筛选
      */
     hasActiveFilters() {
-      return !!(
-        (this.currentFilters.isNew && this.currentFilters.isNew !== '' && this.currentFilters.isNew !== 'all') ||
-        (this.currentFilters.petType && this.currentFilters.petType !== '' && this.currentFilters.petType !== 'all') ||
-        (this.currentFilters.productType && this.currentFilters.productType !== '' && this.currentFilters.productType !== 'all')
-        // isSnacks 暂时注释
-      )
+      const isNew = this.currentFilters.isNew && this.currentFilters.isNew !== '' && this.currentFilters.isNew !== 'all'
+      const petType = this.currentFilters.petType && this.currentFilters.petType !== '' && this.currentFilters.petType !== 'all'
+      const productType = this.currentFilters.productType && this.currentFilters.productType !== '' && this.currentFilters.productType !== 'all'
+
+      return !!(isNew || petType || productType)
     },
 
     /**
@@ -360,12 +321,17 @@ export default {
      * @param {Object} filters - 筛选条件对象
      */
     async handleFilterChange(filters) {
-      console.log('筛选条件变化:', filters)
+      console.log('🎯 筛选条件变化:', filters)
+
+      // 立即显示骨架屏
+      console.log('📺 显示骨架屏')
+      this.isFiltering = true
+
       this.currentFilters = { ...filters }
 
       // 检查是否需要加载所有数据
       if (this.currentPage < TOTAL_PAGES) {
-        console.log('正在加载所有数据以进行筛选...')
+        console.log('📦 正在加载所有数据以进行筛选...')
         uni.showLoading({
           title: '加载中...',
           mask: true
@@ -381,29 +347,17 @@ export default {
         }
 
         uni.hideLoading()
-        console.log(`所有数据加载完成，共${this.allProducts.length}条`)
+        console.log(`✅ 所有数据加载完成，共${this.allProducts.length}条`)
       }
 
-      // 应用筛选
-      this.applyFilter()
-
-      // 提示用户
-      const filterText = []
-      if (filters.isNew) filterText.push('新品')
-      if (filters.petType === 'cat') filterText.push('猫')
-      if (filters.petType === 'dog') filterText.push('狗')
-      if (filters.petType === 'universal') filterText.push('通用')
-      if (filters.petType === 'young') filterText.push('幼猫')
-      if (filters.productType) filterText.push(filters.productType)
-      // if (filters.isSnacks === '0') filterText.push('主食')
-      // if (filters.isSnacks === '1') filterText.push('零食')
-
-      const text = filterText.length > 0 ? filterText.join(' + ') : '全部'
-
-      uni.showToast({
-        title: `${text}: ${this.filteredProducts.length}条`,
-        icon: 'none'
+      // 使用 nextTick 确保骨架屏显示后再执行筛选
+      this.$nextTick(() => {
+        setTimeout(() => {
+          this.applyFilter()
+        }, 100)
       })
+    },
+      this.applyFilter()
     }
   }
 }

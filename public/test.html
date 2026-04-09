@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据加载测试</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .success { color: green; }
+    .error { color: red; }
+    .product { border: 1px solid #ddd; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    .loading { color: blue; }
+  </style>
+</head>
+<body>
+  <h1>📦 CDN 数据加载测试</h1>
+  <div id="status" class="loading">⏳ 正在加载...</div>
+  <div id="results"></div>
+
+  <script>
+    const statusDiv = document.getElementById('status');
+    const resultsDiv = document.getElementById('results');
+
+    async function loadData() {
+      const url = 'https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@main/db/data-page1.json';
+
+      try {
+        console.log('请求 URL:', url);
+        const response = await fetch(url);
+        console.log('响应状态:', response.status);
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        console.log('返回数据:', result);
+
+        if (result.code === 200 && Array.isArray(result.data)) {
+          statusDiv.innerHTML = `<h2 class="success">✅ 加载成功！</h2>`;
+          statusDiv.innerHTML += `
+            <p><strong>状态码：</strong>${result.code}</p>
+            <p><strong>数据条数：</strong>${result.data.length}</p>
+            <p><strong>当前页：</strong>${result.page}</p>
+            <p><strong>总数据：</strong>${result.total}</p>
+          `;
+
+          // 显示前 5 个商品
+          resultsDiv.innerHTML = '<h3>前 5 个商品：</h3>';
+          result.data.slice(0, 5).forEach(product => {
+            resultsDiv.innerHTML += `
+              <div class="product">
+                <strong>${product.product_name}</strong><br>
+                价格：¥${product.product_price}<br>
+                类型：${product.product_type_name}<br>
+                重量：${product.product_weight}
+              </div>
+            `;
+          });
+        } else {
+          throw new Error('数据格式错误: ' + JSON.stringify(result));
+        }
+      } catch (error) {
+        console.error('加载失败:', error);
+        statusDiv.innerHTML = `<h2 class="error">❌ 加载失败</h2>`;
+        statusDiv.innerHTML += `<p><strong>错误：</strong>${error.message}</p>`;
+      }
+    }
+
+    // 页面加载后执行
+    loadData();
+  </script>
+</body>
+</html>

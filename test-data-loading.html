@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>测试数据加载</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h1>CDN 数据加载测试</h1>
+  <div id="result"></div>
+
+  <script>
+    const resultDiv = document.getElementById('result');
+
+    async function testLoading() {
+      resultDiv.innerHTML = '<p style="color: blue;">正在加载数据...</p>';
+
+      try {
+        const response = await fetch('https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@main/db/data-page1.json');
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        resultDiv.innerHTML = `
+          <h2 style="color: green;">✅ 加载成功！</h2>
+          <p><strong>状态码：</strong>${data.code}</p>
+          <p><strong>数据条数：</strong>${data.data.length}</p>
+          <p><strong>当前页：</strong>${data.page}</p>
+          <p><strong>总数据：</strong>${data.total}</p>
+          <h3>第一条商品：</h3>
+          <pre>${JSON.stringify(data.data[0], null, 2)}</pre>
+        `;
+      } catch (error) {
+        resultDiv.innerHTML = `
+          <h2 style="color: red;">❌ 加载失败</h2>
+          <p><strong>错误：</strong>${error.message}</p>
+        `;
+        console.error('加载失败:', error);
+      }
+    }
+
+    // 页面加载后自动测试
+    testLoading();
+  </script>
+</body>
+</html>

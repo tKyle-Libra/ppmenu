@@ -3,7 +3,7 @@
  */
 
 // CDN 基础地址
-export const BASE_URL = 'https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@0.0.6/'
+export const BASE_URL = 'https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@main/'
 
 // 数据文件路径
 export const DATA_BASE_URL = '/db/'
@@ -12,7 +12,7 @@ export const DATA_BASE_URL = '/db/'
 export const PAGE_SIZE = 20
 
 // 总页数（根据实际数据计算）
-export const TOTAL_PAGES = 19
+export const TOTAL_PAGES = 26
 
 // 类型路径映射
 export const TYPE_PATHS = {
@@ -37,11 +37,11 @@ export function getTypePath(typeId) {
   return TYPE_PATHS[key] || 'other/'
 }
 
-// Banner 图片配置（临时使用网图）
+// Banner 图片配置
 export const BANNER_IMAGES = [
-  'https://picsum.photos/750/300?random=1',
-  'https://picsum.photos/750/300?random=2',
-  'https://picsum.photos/750/300?random=3'
+  'https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@main/banner/1.jpg',
+  'https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@main/banner/2.jpg',
+  'https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@main/banner/3.jpg'
 ]
 
 // 筛选条件（临时配置，待根据实际需求调整）

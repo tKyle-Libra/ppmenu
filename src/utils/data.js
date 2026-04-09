@@ -1,51 +1,9 @@
 /**
  * 数据加载工具
- * 直接导入所有数据页面，运行时分页返回
+ * 从 GitHub CDN 动态加载数据
  */
 
-// 导入所有数据页面
-import page1 from '/public/db/data-page1.json'
-import page2 from '/public/db/data-page2.json'
-import page3 from '/public/db/data-page3.json'
-import page4 from '/public/db/data-page4.json'
-import page5 from '/public/db/data-page5.json'
-import page6 from '/public/db/data-page6.json'
-import page7 from '/public/db/data-page7.json'
-import page8 from '/public/db/data-page8.json'
-import page9 from '/public/db/data-page9.json'
-import page10 from '/public/db/data-page10.json'
-import page11 from '/public/db/data-page11.json'
-import page12 from '/public/db/data-page12.json'
-import page13 from '/public/db/data-page13.json'
-import page14 from '/public/db/data-page14.json'
-import page15 from '/public/db/data-page15.json'
-import page16 from '/public/db/data-page16.json'
-import page17 from '/public/db/data-page17.json'
-import page18 from '/public/db/data-page18.json'
-import page19 from '/public/db/data-page19.json'
-
-// 页面数据映射
-const pagesData = {
-  1: page1,
-  2: page2,
-  3: page3,
-  4: page4,
-  5: page5,
-  6: page6,
-  7: page7,
-  8: page8,
-  9: page9,
-  10: page10,
-  11: page11,
-  12: page12,
-  13: page13,
-  14: page14,
-  15: page15,
-  16: page16,
-  17: page17,
-  18: page18,
-  19: page19
-}
+import { loadPageData as loadPageFromRequest } from './request.js'
 
 const pageCache = new Map()
 
@@ -64,8 +22,8 @@ export async function loadPageData(pageNum) {
       return pageCache.get(pageNum)
     }
 
-    // 获取数据
-    const data = pagesData[pageNum] || []
+    // 从 GitHub CDN 加载数据
+    const data = await loadPageFromRequest(pageNum)
 
     // 存入缓存
     pageCache.set(pageNum, data)
