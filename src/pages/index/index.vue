@@ -15,10 +15,6 @@
 </template>
 
 <script>
-import BannerSwiper from '@/components/BannerSwiper/BannerSwiper.vue'
-import FilterDimensions from '@/components/FilterDimensions/FilterDimensions.vue'
-import ProductList from '@/components/ProductList/ProductList.vue'
-import LoadingState from '@/components/LoadingState/LoadingState.vue'
 import { loadPageData } from '@/utils/data.js'
 import { processTastes } from '@/utils/request.js'
 import { TOTAL_PAGES } from '@/utils/config.js'
@@ -27,10 +23,6 @@ import filterConfig from '@/data/filter-dimensions.json'
 export default {
   name: 'Index',
   components: {
-    BannerSwiper,
-    FilterDimensions,
-    ProductList,
-    LoadingState
   },
   data() {
     return {

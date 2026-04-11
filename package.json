@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev:custom": "uni -p",
+    "fix:toutiao": "node scripts/fix-toutiao-build.js",
     "dev:h5": "uni",
     "dev:h5:ssr": "uni --ssr",
     "dev:mp-alipay": "uni -p mp-alipay",
@@ -12,6 +13,7 @@
     "dev:mp-lark": "uni -p mp-lark",
     "dev:mp-qq": "uni -p mp-qq",
     "dev:mp-toutiao": "uni -p mp-toutiao",
+    "dev:mp-toutiao:fixed": "npm run dev:mp-toutiao && sleep 5 && node scripts/fix-toutiao-build.js",
     "dev:mp-harmony": "uni -p mp-harmony",
     "dev:mp-weixin": "uni -p mp-weixin",
     "dev:mp-xhs": "uni -p mp-xhs",

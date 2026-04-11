@@ -11,11 +11,26 @@ import { BASE_URL } from './config.js'
 export async function loadPageData(pageNum) {
   try {
     const fileName = `data-page${pageNum}.json`
-    console.log('正在请求:', `${getDataBaseUrl()}${fileName}`)
+    const fullUrl = `${getDataBaseUrl()}${fileName}`
+    console.log('正在请求:', fullUrl)
+    console.log('完整URL:', fullUrl)
 
-    const response = await uni.request({
-      url: `${getDataBaseUrl()}${fileName}?t=${new Date().getTime()}`,
-      method: 'GET'
+    // 使用 Promise 包装 uni.request
+    const response = await new Promise((resolve, reject) => {
+      uni.request({
+        url: fullUrl,
+        method: 'GET',
+        dataType: 'json',
+        timeout: 10000,
+        success: (res) => {
+          console.log('请求成功:', res)
+          resolve(res)
+        },
+        fail: (err) => {
+          console.error('请求失败:', err)
+          reject(err)
+        }
+      })
     })
 
     console.log('uni.request 原始返回:', response)
@@ -67,6 +82,21 @@ export async function loadPageData(pageNum) {
     }
   } catch (error) {
     console.error('加载数据失败:', error)
+    console.error('错误详情:', {
+      errMsg: error.errMsg,
+      errNo: error.errNo,
+      errorCode: error.errorCode,
+      errorType: error.errorType
+    })
+
+    // 如果是协议错误，提供更详细的信息
+    if (error.errMsg && error.errMsg.includes('protocol')) {
+      console.error('⚠️ 协议错误！请检查:')
+      console.error('1. URL 是否以 https:// 开头')
+      console.error('2. 抖音小程序是否开启了"不校验合法域名"')
+      console.error('3. 网络连接是否正常')
+    }
+
     return []
   }
 }

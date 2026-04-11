@@ -5,6 +5,12 @@
       "style": {
         "navigationBarTitleText": "PP家的菜单"
       }
+    },
+    {
+      "path": "pages/test-network",
+      "style": {
+        "navigationBarTitleText": "网络测试"
+      }
     }
   ],
   "globalStyle": {
