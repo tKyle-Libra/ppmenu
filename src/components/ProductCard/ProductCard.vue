@@ -101,7 +101,8 @@ export default {
         7: p.is_snacks ? '零食冻干' : '主食冻干',
       }
       const suffix = suffixMap[p.product_type_id] || ''
-      return suffix ? base + suffix : base
+      if (!suffix || base.includes(suffix)) return base
+      return base + suffix
     }
   },
   data() {
