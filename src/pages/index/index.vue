@@ -380,6 +380,8 @@ export default {
       // 应用筛选
       this.applyFilter()
 
+      uni.pageScrollTo({ scrollTop: 0, duration: 300 })
+
       // 提示用户
       const filterText = []
       if (filters.isNew) filterText.push('新品')
