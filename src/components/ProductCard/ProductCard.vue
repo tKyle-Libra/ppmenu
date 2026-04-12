@@ -94,7 +94,8 @@ export default {
   computed: {
     displayName() {
       const p = this.product
-      const base = p.brand_name === p.product_name
+      const sameName = p.brand_name.toLowerCase() === p.product_name.toLowerCase()
+      const base = sameName
         ? p.brand_name
         : p.brand_name + p.product_name
       const suffixMap = {

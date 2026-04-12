@@ -1,10 +1,10 @@
 <template>
   <view class="page">
     <!-- Banner 轮播 -->
-    <BannerSwiper :show="bannerVisible" />
+    <!-- <BannerSwiper :show="bannerVisible" /> -->
 
     <!-- 三维筛选栏 -->
-    <FilterDimensions :banner-visible="bannerVisible" :current-filters="currentFilters" @filter-change="handleFilterChange" />
+    <FilterDimensions :current-filters="currentFilters" @filter-change="handleFilterChange" />
 
     <!-- 商品列表 -->
     <ProductList :products="displayProducts" :loading="loading" />
