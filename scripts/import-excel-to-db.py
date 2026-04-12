@@ -513,7 +513,10 @@ def import_data(excel_path, db_path):
             eat_type = parse_eat_type(col_type)
 
             if col_img is not None and str(col_img).strip():
-                product_img = f'{dir_prefix}/{str(col_img).strip()}'
+                img_name = str(col_img).strip()
+                if not img_name.lower().endswith(('.jpeg', '.jpg', '.png')):
+                    img_name += '.jpeg'
+                product_img = f'{dir_prefix}/{img_name}'
             else:
                 product_img = 'default.png'
 
