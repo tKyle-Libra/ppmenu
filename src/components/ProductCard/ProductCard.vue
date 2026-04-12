@@ -49,8 +49,7 @@
     <!-- 商品信息 -->
     <view class="product-info">
       <view class="product-title">
-        <text v-if="product.brand_name === product.product_name">{{ product.brand_name }}</text>
-        <text v-else>{{ product.brand_name }}{{ product.product_name }}</text>
+        <text>{{ displayName }}</text>
       </view>
 
       <!-- 口味标签 -->
@@ -74,7 +73,7 @@
 </template>
 
 <script>
-import { processImageUrl } from '@/utils/request.js'
+import { processThumbnailUrl, processImageUrl } from '@/utils/request.js'
 import { BASE_URL } from '@/utils/config.js'
 
 export default {
@@ -89,55 +88,60 @@ export default {
       default: true
     }
   },
+  computed: {
+    displayName() {
+      const p = this.product
+      const base = p.brand_name === p.product_name
+        ? p.brand_name
+        : p.brand_name + p.product_name
+      const suffixMap = {
+        1: '主食酱包',
+        3: '主食罐',
+        4: '主食餐盒',
+        7: p.is_snacks ? '零食冻干' : '主食冻干',
+      }
+      const suffix = suffixMap[p.product_type_id] || ''
+      return suffix ? base + suffix : base
+    }
+  },
   data() {
     return {
       imageLoading: true,
       imageError: false,
       currentImageUrl: '',
-      useDefaultImage: false
+      useDefaultImage: false,
+      triedOriginal: false,
+      triedDefault: false
     }
   },
   mounted() {
-    // 直接使用原图
-    this.currentImageUrl = this.getImageUrl(this.product)
+    this.currentImageUrl = this.getThumbnailUrl(this.product)
   },
   methods: {
-    /**
-     * 获取完整的图片 URL
-     * @param {Object} product - 商品对象
-     * @returns {String} 完整的图片 URL
-     */
-    getImageUrl(product) {
-      if (this.useDefaultImage) {
-        return `${BASE_URL}default.jpg`
-      }
-
+    getThumbnailUrl(product) {
       if (!product.product_img) return ''
-
-      // 直接使用原图
-      return processImageUrl(
-        product.product_img,
-        product.product_type_id,
-        BASE_URL
-      )
+      return processThumbnailUrl(product.product_img, product.product_type_id, BASE_URL)
     },
 
-    /**
-     * 图片加载成功
-     */
+    getOriginalUrl(product) {
+      if (!product.product_img) return ''
+      return processImageUrl(product.product_img, product.product_type_id, BASE_URL)
+    },
+
     onImageLoad() {
       this.imageLoading = false
       this.imageError = false
     },
 
-    /**
-     * 图片加载失败 - 使用默认图
-     */
     onImageError() {
-      console.log('图片加载失败，使用默认图:', this.product.product_name)
+      if (!this.triedOriginal) {
+        this.triedOriginal = true
+        this.currentImageUrl = this.getOriginalUrl(this.product)
+        return
+      }
 
-      if (!this.useDefaultImage) {
-        this.useDefaultImage = true
+      if (!this.triedDefault) {
+        this.triedDefault = true
         this.currentImageUrl = `${BASE_URL}default.jpg`
         this.imageLoading = false
         this.imageError = true

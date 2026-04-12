@@ -198,6 +198,7 @@ export default {
         product_type_name: this.typeNameMap[item.typeId] || '',
         brand_name: item.brand,
         product_tastes: processTastes(item.tastes),
+        is_snacks: item.is_snacks || false,
         // 保留原字段用于筛选
         id: item.id,
         name: item.name,

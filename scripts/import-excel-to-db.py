@@ -680,7 +680,8 @@ def regenerate_json(db_path):
             p.product_type_id as typeId,
             b.brand_name as brand,
             GROUP_CONCAT(pt.product_taste_name, '、') as tastes,
-            MAX(pt.is_young) as is_young
+            MAX(pt.is_young) as is_young,
+            MAX(pt.is_snacks) as is_snacks
         FROM product p
         JOIN brand b ON p.brand_id = b.brand_id
         LEFT JOIN product_taste pt ON p.product_id = pt.product_id
@@ -699,6 +700,7 @@ def regenerate_json(db_path):
             'eatType': row['eatType'],
             'isNew': row['isNew'] == 1,
             'is_young': row['is_young'] == 1,
+            'is_snacks': row['is_snacks'] == 1,
             'typeId': row['typeId'],
             'brand': row['brand'],
             'tastes': row['tastes'] or '',
