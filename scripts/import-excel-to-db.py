@@ -21,6 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EXCEL_PATH = os.path.join(BASE_DIR, '..', '价目表.xlsx')
 DB_PATH = os.path.join(BASE_DIR, '..', 'ppmenu_assets_test', 'db', 'ppmenu.db')
 OUTPUT_BASE = os.path.join(BASE_DIR, '..', 'ppmenu_assets_test')
+CONFIG_PATH = os.path.join(BASE_DIR, 'src', 'utils', 'config.js')
+PAGE_SIZE = 20
 
 THUMBNAIL_SIZE = 300
 JPEG_QUALITY = 90
@@ -353,9 +355,7 @@ def extract_images(excel_path, output_base):
 
         dir_name = SHEET_DIR_MAP.get(sheet_name, 'other')
         out_dir = os.path.join(output_base, dir_name)
-        thumb_dir = os.path.join(out_dir, 'thumbnail')
         os.makedirs(out_dir, exist_ok=True)
-        os.makedirs(thumb_dir, exist_ok=True)
 
         ws = wb[sheet_name]
         sheet_count = 0
@@ -377,9 +377,8 @@ def extract_images(excel_path, output_base):
             filename = str(cell_f.value).strip()
 
             out_path = os.path.join(out_dir, filename + '.jpeg')
-            thumb_path = os.path.join(thumb_dir, filename + '.jpeg')
 
-            if os.path.exists(out_path) and os.path.exists(thumb_path):
+            if os.path.exists(out_path):
                 total_skipped += 1
                 continue
 
@@ -400,11 +399,7 @@ def extract_images(excel_path, output_base):
                 elif img.mode != 'RGB':
                     img = img.convert('RGB')
 
-                img.save(out_path, 'JPEG', quality=JPEG_QUALITY)
-
-                thumb = img.copy()
-                thumb.thumbnail((THUMBNAIL_SIZE, THUMBNAIL_SIZE), Image.LANCZOS)
-                thumb.save(thumb_path, 'JPEG', quality=THUMBNAIL_QUALITY)
+                img.save(out_path, 'JPEG', quality=THUMBNAIL_QUALITY)
 
                 sheet_count += 1
             except Exception as e:
@@ -668,6 +663,94 @@ def cleanup_duplicates(conn):
     print(f'  清理 {deleted_count} 条重复产品（合并了 {len(groups)} 组）')
 
 
+def regenerate_json(db_path):
+    db_dir = os.path.dirname(db_path)
+    conn = sqlite3.connect(db_path)
+    conn.row_factory = sqlite3.Row
+
+    cur = conn.execute('''
+        SELECT 
+            p.product_id as id,
+            p.product_name as name,
+            p.product_price as price,
+            p.product_img as image,
+            p.product_weight as weight,
+            p.product_eat_type as eatType,
+            p.product_is_new as isNew,
+            p.product_type_id as typeId,
+            b.brand_name as brand,
+            GROUP_CONCAT(pt.product_taste_name, '、') as tastes,
+            MAX(pt.is_young) as is_young
+        FROM product p
+        JOIN brand b ON p.brand_id = b.brand_id
+        LEFT JOIN product_taste pt ON p.product_id = pt.product_id
+        GROUP BY p.product_id
+        ORDER BY p.product_id
+    ''')
+
+    products = []
+    for row in cur:
+        product = {
+            'id': row['id'],
+            'name': row['name'],
+            'price': row['price'],
+            'image': row['image'],
+            'weight': row['weight'],
+            'eatType': row['eatType'],
+            'isNew': row['isNew'] == 1,
+            'is_young': row['is_young'] == 1,
+            'typeId': row['typeId'],
+            'brand': row['brand'],
+            'tastes': row['tastes'] or '',
+        }
+        products.append(product)
+
+    total = len(products)
+    total_pages = (total + PAGE_SIZE - 1) // PAGE_SIZE
+    conn.close()
+
+    for f in os.listdir(db_dir):
+        if f.startswith('data-page') and f.endswith('.json'):
+            os.remove(os.path.join(db_dir, f))
+
+    for page in range(1, total_pages + 1):
+        start = (page - 1) * PAGE_SIZE
+        end = start + PAGE_SIZE
+        page_data = products[start:end]
+        filepath = os.path.join(db_dir, f'data-page{page}.json')
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(page_data, f, ensure_ascii=False, indent=2)
+
+    print(f'  生成 {total_pages} 页 JSON, 共 {total} 条产品')
+    return total_pages
+
+
+def update_config(db_path):
+    print('\n=== 更新 config.js ===')
+
+    total_pages = regenerate_json(db_path)
+
+    config_path = os.path.abspath(CONFIG_PATH)
+    if not os.path.exists(config_path):
+        print(f'  [跳过] config.js 不存在: {config_path}')
+        return
+
+    with open(config_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    new_pages_str = str(total_pages)
+    content = re.sub(
+        r"(TOTAL_PAGES:\s*)\d+",
+        rf"\g<1>{new_pages_str}",
+        content,
+    )
+
+    with open(config_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+    print(f'  TOTAL_PAGES -> {new_pages_str}')
+
+
 def main():
     excel_path = os.path.abspath(EXCEL_PATH)
     db_path = os.path.abspath(DB_PATH)
@@ -684,6 +767,7 @@ def main():
 
     extract_images(excel_path, output_base)
     import_data(excel_path, db_path)
+    update_config(db_path)
 
     print('\n✅ 全部完成')
 

@@ -20,7 +20,7 @@ export const DEVELOPMENT_CONFIG = {
   DATA_BASE_URL: 'db/',
 
   // 总页数（完整数据：509条商品）
-  TOTAL_PAGES: 26,
+  TOTAL_PAGES: 43,
 
   // 每页数据量
   PAGE_SIZE: 20,
@@ -41,7 +41,7 @@ export const PRODUCTION_CONFIG = {
   DATA_BASE_URL: 'db/',
 
   // 总页数（完整数据：509条商品）
-  TOTAL_PAGES: 26,
+  TOTAL_PAGES: 43,
 
   // 每页数据量
   PAGE_SIZE: 20,
@@ -132,7 +132,7 @@ export function setEnvironment(env) {
     }
 
     console.log(`\n⚠️  环境切换: ${envNames[env]}`)
-    console.log(`📊 数据源: ${repoNames[env]}@main (509条完整数据)`)
+    // console.log(`📊 数据源: ${repoNames[env]}@main (509条完整数据)`)
     console.log(`🌐 CDN地址: ${env === 'production' ? PRODUCTION_CONFIG.BASE_URL : DEVELOPMENT_CONFIG.BASE_URL}`)
     console.log(`\n💡 请重新编译项目使配置生效\n`)
     return true
@@ -156,7 +156,7 @@ export function showCurrentEnv() {
   console.log(`环境名称: ${env.envName}`)
   console.log(`数据源: ${repoName}@main`)
   console.log(`说明: ${env.description}`)
-  console.log(`商品数量: 509条 (26页)`)
+  // console.log(`商品数量: 509条 (26页)`)
   console.log(`每页数量: ${env.config.PAGE_SIZE}条`)
   console.log(`\n🌐 CDN地址:`)
   console.log(`  ${env.cdnUrl}`)
