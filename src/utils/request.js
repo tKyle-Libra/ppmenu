@@ -112,82 +112,46 @@ function getDataBaseUrl() {
   return BASE_URL + 'db/'
 }
 
-/**
- * 处理图片URL
- * @param {string} imgUrl - 原始图片URL
- * @param {number} typeId - 商品类型ID
- * @param {string} baseUrl - CDN基础URL
- * @returns {string} 处理后的图片URL
- */
-export function processImageUrl(imgUrl, typeId, baseUrl) {
+function buildImageUrl(imgUrl, typeId, baseUrl) {
   if (!imgUrl) return `${baseUrl}default.jpg`
 
-  // 如果是default.png，直接使用default.jpg
   if (imgUrl.includes('default.png') || imgUrl === 'default.png') {
     return `${baseUrl}default.jpg`
   }
 
-  // 如果已经是完整URL，直接返回
   if (imgUrl.startsWith('http')) {
     return imgUrl
   }
 
-  // 暂时使用原图（等CDN同步缩略图后再优化）
   const typePaths = ['jb/', 'cb/', 'gt/', 'ch/', 'nzp/', 'tang/', 'dg/', 'mt/', 'other/']
   const hasPrefix = typePaths.some(path => imgUrl.startsWith(path))
 
+  let dirPrefix = ''
+  let fileName = imgUrl
+
   if (hasPrefix) {
-    // 已包含前缀
-    let fullUrl = `${baseUrl}${imgUrl}`
-    if (!fullUrl.endsWith('.png') && !fullUrl.endsWith('.jpg') && !fullUrl.endsWith('.jpeg')) {
-      fullUrl += '.png'
-    }
-    return fullUrl
+    const idx = imgUrl.indexOf('/')
+    dirPrefix = imgUrl.substring(0, idx + 1)
+    fileName = imgUrl.substring(idx + 1)
   } else {
-    // 没有前缀，添加类型路径
-    const typePath = getTypePath(typeId)
-    let fullUrl = `${baseUrl}${typePath}${imgUrl}`
-    if (!fullUrl.endsWith('.png') && !fullUrl.endsWith('.jpg') && !fullUrl.endsWith('.jpeg')) {
-      fullUrl += '.png'
-    }
-    return fullUrl
+    dirPrefix = getTypePath(typeId)
   }
+
+  let fullUrl = `${baseUrl}${dirPrefix}${fileName}`
+  if (!fullUrl.match(/\.(png|jpe?g|webp|gif)$/i)) {
+    fullUrl += '.jpeg'
+  } else {
+    fullUrl = fullUrl.replace(/\.(png|jpg)$/i, '.jpeg')
+  }
+  return fullUrl
 }
 
-/**
- * 获取原图URL（作为fallback）
- * @param {string} imgUrl - 原始图片路径
- * @param {number} typeId - 类型ID
- * @param {string} baseUrl - CDN基础URL
- * @returns {string} 原图URL
- */
-export function getOriginalImageUrl(imgUrl, typeId, baseUrl) {
-  if (!imgUrl) return `${baseUrl}default.jpg`
+export function processImageUrl(imgUrl, typeId, baseUrl) {
+  return buildImageUrl(imgUrl, typeId, baseUrl)
+}
 
-  // 如果已经是完整URL，直接返回
-  if (imgUrl.startsWith('http')) {
-    return imgUrl
-  }
-
-  const typePaths = ['jb/', 'cb/', 'gt/', 'ch/', 'nzp/', 'tang/', 'dg/', 'mt/', 'other/']
-  const hasPrefix = typePaths.some(path => imgUrl.startsWith(path))
-
-  if (hasPrefix) {
-    // 已包含前缀
-    let fullUrl = `${baseUrl}${imgUrl}`
-    if (!fullUrl.endsWith('.png') && !fullUrl.endsWith('.jpg') && !fullUrl.endsWith('.jpeg')) {
-      fullUrl += '.png'
-    }
-    return fullUrl
-  } else {
-    // 没有前缀，添加类型路径
-    const typePath = getTypePath(typeId)
-    let fullUrl = `${baseUrl}${typePath}${imgUrl}`
-    if (!fullUrl.endsWith('.png') && !fullUrl.endsWith('.jpg') && !fullUrl.endsWith('.jpeg')) {
-      fullUrl += '.png'
-    }
-    return fullUrl
-  }
+export function processThumbnailUrl(imgUrl, typeId, baseUrl) {
+  return buildImageUrl(imgUrl, typeId, baseUrl)
 }
 
 /**
