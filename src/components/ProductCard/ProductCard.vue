@@ -65,8 +65,11 @@
 
       <!-- 价格 -->
       <view class="product-price">
-        <text class="price-symbol">¥</text>
-        <text class="price-value">{{ product.product_price }}</text>
+        <template v-if="product.product_price && product.product_price !== '0' && product.product_price !== ''">
+          <text class="price-symbol">¥</text>
+          <text class="price-value">{{ product.product_price }}</text>
+        </template>
+        <text v-else class="price-value">待出价</text>
       </view>
     </view>
   </view>
