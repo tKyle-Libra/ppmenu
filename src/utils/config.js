@@ -20,7 +20,7 @@ export const DEVELOPMENT_CONFIG = {
   DATA_BASE_URL: 'db/',
 
   // 总页数（完整数据：509条商品）
-  TOTAL_PAGES: 43,
+  TOTAL_PAGES: 35,
 
   // 每页数据量
   PAGE_SIZE: 20,
@@ -41,7 +41,7 @@ export const PRODUCTION_CONFIG = {
   DATA_BASE_URL: 'db/',
 
   // 总页数（完整数据：509条商品）
-  TOTAL_PAGES: 43,
+  TOTAL_PAGES: 35,
 
   // 每页数据量
   PAGE_SIZE: 20,

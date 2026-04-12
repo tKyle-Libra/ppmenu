@@ -264,6 +264,7 @@ def parse_tastes(taste_text):
     if taste_text is None or taste_text.strip() == '':
         return []
     text = taste_text.strip()
+    text = text.replace('\n', '、')
     if '、' in text:
         parts = text.split('、')
     elif '，' in text:
@@ -272,12 +273,26 @@ def parse_tastes(taste_text):
         parts = text.split(',')
     else:
         cleaned = clean_taste_name(text)
+        if cleaned:
+            words = cleaned.split()
+            if len(words) >= 2 and all(re.match(r'^[\u4e00-\u9fff]+$', w) for w in words):
+                return [w for w in words if w]
         return [cleaned] if cleaned else []
     result = []
     for p in parts:
-        cleaned = clean_taste_name(p)
-        if cleaned:
-            result.append(cleaned)
+        p = p.strip()
+        if not p:
+            continue
+        words = p.split()
+        if len(words) >= 2 and all(re.match(r'^[\u4e00-\u9fff]+$', w) for w in words):
+            for w in words:
+                cleaned = clean_taste_name(w)
+                if cleaned:
+                    result.append(cleaned)
+        else:
+            cleaned = clean_taste_name(p)
+            if cleaned:
+                result.append(cleaned)
     return result
 
 
@@ -520,6 +535,7 @@ def import_data(excel_path, db_path):
             product_id = None
             operation = None
 
+            # Step 1: exact match (name + brand + type + weight)
             cursor = conn.execute(
                 'SELECT product_id FROM product WHERE product_name = ? AND brand_id = ? AND product_type_id = ? AND product_weight = ?',
                 (product_name, brand_id, type_id, weight)
@@ -539,7 +555,9 @@ def import_data(excel_path, db_path):
                 operation = 'updated'
                 sheet_updated += 1
                 stats['products_updated'] += 1
+
             else:
+                # Step 2: try match with empty weight
                 if weight:
                     cursor2 = conn.execute(
                         'SELECT product_id FROM product WHERE product_name = ? AND brand_id = ? AND product_type_id = ? AND product_weight = ?',
@@ -560,6 +578,33 @@ def import_data(excel_path, db_path):
                         operation = 'updated'
                         sheet_updated += 1
                         stats['products_updated'] += 1
+
+                # Step 3: fuzzy match by brand + type, find old records with similar name or default image
+                if product_id is None:
+                    norm_pn = re.sub(r'[系列罐头包餐盒酱包冻干\s]', '', product_name)
+                    cursor3 = conn.execute(
+                        'SELECT product_id, product_name, product_img FROM product WHERE brand_id = ? AND product_type_id = ?',
+                        (brand_id, type_id)
+                    )
+                    for row3 in cursor3.fetchall():
+                        existing_id, existing_name, existing_img = row3
+                        norm_en = re.sub(r'[系列罐头包餐盒酱包冻干\s]', '', existing_name)
+                        if norm_pn == norm_en or norm_pn in norm_en or norm_en in norm_pn:
+                            product_id = existing_id
+                            conn.execute('''
+                                UPDATE product SET
+                                    product_name = ?,
+                                    product_price = ?,
+                                    product_img = ?,
+                                    product_weight = ?,
+                                    product_eat_type = ?,
+                                    product_is_new = 0
+                                WHERE product_id = ?
+                            ''', (product_name, price, product_img, weight, eat_type, product_id))
+                            operation = 'updated'
+                            sheet_updated += 1
+                            stats['products_updated'] += 1
+                            break
 
                 if product_id is None:
                     conn.execute('''
