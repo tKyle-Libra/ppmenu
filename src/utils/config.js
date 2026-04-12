@@ -14,7 +14,7 @@ export const CURRENT_ENV = ENVIRONMENT.DEVELOPMENT
 // ==================== ppmenu_assets_test 待部署测试环境配置 ====================
 export const DEVELOPMENT_CONFIG = {
   // 使用 ppmenu_assets_test 仓库的 main 分支（jsDelivr CDN）
-  BASE_URL: 'http://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets_test@main/',
+  BASE_URL: 'https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets_test@main/',
 
   // 数据文件路径
   DATA_BASE_URL: 'db/',
@@ -35,7 +35,7 @@ export const DEVELOPMENT_CONFIG = {
 // ==================== ppmenu_assets 正式生产环境配置 ====================
 export const PRODUCTION_CONFIG = {
   // 使用 ppmenu_assets 仓库（jsDelivr CDN）
-  BASE_URL: 'http://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@main/',
+  BASE_URL: 'https://cdn.jsdelivr.net/gh/tKyle-Libra/ppmenu_assets@main/',
 
   // 数据文件路径
   DATA_BASE_URL: 'db/',
