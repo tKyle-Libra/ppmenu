@@ -163,7 +163,6 @@ export default {
   background-color: #ffffff;
   border-radius: 16rpx;
   overflow: hidden;
-  margin-bottom: 20rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
 }
 

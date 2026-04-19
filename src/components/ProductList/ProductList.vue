@@ -56,13 +56,16 @@ export default {
 <style scoped>
 .product-list {
   padding: 24rpx;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20rpx;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .list-item {
-  margin-bottom: 20rpx;
 }
 
-/* 空状态 */
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -71,7 +74,7 @@ export default {
   padding: 160rpx 0;
   background-color: #ffffff;
   border-radius: 16rpx;
-  margin-top: 20rpx;
+  grid-column: 1 / -1;
 }
 
 .empty-icon {
@@ -90,5 +93,17 @@ export default {
 .empty-hint {
   font-size: 26rpx;
   color: #999999;
+}
+
+@media (min-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-list {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
 }
 </style>

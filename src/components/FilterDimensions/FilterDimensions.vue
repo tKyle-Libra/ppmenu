@@ -3,65 +3,67 @@
     class="filter-dimensions"
     :class="{ 'with-banner': bannerVisible }"
   >
-    <!-- 维度1：新品筛选 -->
-    <view class="filter-row">
-      <view class="filter-content">
-        <view
-          v-for="item in dimension1"
-          :key="item.id"
-          class="filter-item"
-          :class="{ active: activeFilter1 === item.id }"
-          @tap="handleFilterChange(1, item)"
-        >
-          <text class="filter-text">{{ item.name }}</text>
+    <view class="filter-dimensions-inner">
+      <!-- 维度1：新品筛选 -->
+      <view class="filter-row">
+        <view class="filter-content">
+          <view
+            v-for="item in dimension1"
+            :key="item.id"
+            class="filter-item"
+            :class="{ active: activeFilter1 === item.id }"
+            @tap="handleFilterChange(1, item)"
+          >
+            <text class="filter-text">{{ item.name }}</text>
+          </view>
         </view>
       </view>
-    </view>
 
-    <!-- 维度2：宠物类型 -->
-    <view class="filter-row">
-      <view class="filter-content">
-        <view
-          v-for="item in dimension2"
-          :key="item.id"
-          class="filter-item"
-          :class="{ active: activeFilter2 === item.id }"
-          @tap="handleFilterChange(2, item)"
-        >
-          <text class="filter-text">{{ item.name }}</text>
+      <!-- 维度2：宠物类型 -->
+      <view class="filter-row">
+        <view class="filter-content">
+          <view
+            v-for="item in dimension2"
+            :key="item.id"
+            class="filter-item"
+            :class="{ active: activeFilter2 === item.id }"
+            @tap="handleFilterChange(2, item)"
+          >
+            <text class="filter-text">{{ item.name }}</text>
+          </view>
         </view>
       </view>
-    </view>
 
-    <!-- 维度3：商品类型 -->
-    <view class="filter-row">
-      <view class="filter-content">
-        <view
-          v-for="item in dimension3"
-          :key="item.id"
-          class="filter-item"
-          :class="{ active: activeFilter3 === item.id }"
-          @tap="handleFilterChange(3, item)"
-        >
-          <text class="filter-text">{{ item.name }}</text>
+      <!-- 维度3：商品类型 -->
+      <view class="filter-row">
+        <view class="filter-content">
+          <view
+            v-for="item in dimension3"
+            :key="item.id"
+            class="filter-item"
+            :class="{ active: activeFilter3 === item.id }"
+            @tap="handleFilterChange(3, item)"
+          >
+            <text class="filter-text">{{ item.name }}</text>
+          </view>
         </view>
       </view>
-    </view>
 
-    <!-- 维度4：零食（暂时注释） -->
-    <!-- <view class="filter-row">
-      <view class="filter-content">
-        <view
-          v-for="item in dimension4"
-          :key="item.id"
-          class="filter-item"
-          :class="{ active: activeFilter4 === item.id }"
-          @tap="handleFilterChange(4, item)"
-        >
-          <text class="filter-text">{{ item.name }}</text>
+      <!-- 维度4：零食（暂时注释） -->
+      <!-- <view class="filter-row">
+        <view class="filter-content">
+          <view
+            v-for="item in dimension4"
+            :key="item.id"
+            class="filter-item"
+            :class="{ active: activeFilter4 === item.id }"
+            @tap="handleFilterChange(4, item)"
+          >
+            <text class="filter-text">{{ item.name }}</text>
+          </view>
         </view>
-      </view>
-    </view> -->
+      </view> -->
+    </view>
   </view>
 </template>
 
@@ -173,6 +175,11 @@ export default {
   z-index: 100;
   background-color: #ffffff;
   border-bottom: 1rpx solid #e5e5e5;
+}
+
+.filter-dimensions-inner {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .filter-row {

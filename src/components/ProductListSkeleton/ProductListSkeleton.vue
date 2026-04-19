@@ -38,14 +38,30 @@ export default {
 <style scoped>
 .skeleton-list {
   padding: 24rpx;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20rpx;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .skeleton-item {
   background-color: #ffffff;
   border-radius: 16rpx;
   padding: 24rpx;
-  margin-bottom: 20rpx;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .skeleton-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skeleton-list {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
 }
 
 /* 图片骨架 */
